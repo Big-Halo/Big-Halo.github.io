@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Big-Halo.github.io</id>
+    <title>Big-Halo</title>
+    <updated>2024-07-26T02:43:01.802Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Big-Halo.github.io"/>
+    <link rel="self" href="https://Big-Halo.github.io/atom.xml"/>
+    <subtitle>我们半推半就的人生</subtitle>
+    <logo>https://Big-Halo.github.io/images/avatar.png</logo>
+    <icon>https://Big-Halo.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Big-Halo</rights>
+    <entry>
+        <title type="html"><![CDATA[2024暑假学习计划]]></title>
+        <id>https://Big-Halo.github.io/post/2024-shu-jia-xue-xi-ji-hua/</id>
+        <link href="https://Big-Halo.github.io/post/2024-shu-jia-xue-xi-ji-hua/">
+        </link>
+        <updated>2024-07-07T13:16:24.000Z</updated>
+        <content type="html"><![CDATA[<p>初找找网上模板，做一个本地网站<br>
+因为说是七月底考核，所以这一个月主要就是学CTF了<br>
+计划是滴水初级课程和ctfshow搞完，Android基础感觉是没时间搞了，只能是边做题边学了，时间还是有点紧的，任务重，加油干吧！！！<br>
+八月差不多可以先放松放松，然后搞点感兴趣的，像爬虫，autojs，数据分析什么的，的时候看看有时间弄弄。<br>
+感觉如果都做了，应该是个很充实的暑假，会提升很多，希望两个月后都能实现<br>
+<img src="https://Big-Halo.github.io/post-images/1721961668937.png" alt="" loading="lazy"><br>
+<img src="https://Big-Halo.github.io/post-images/1721961769551.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一篇blog]]></title>
+        <id>https://Big-Halo.github.io/post/di-yi-pian-blog/</id>
+        <link href="https://Big-Halo.github.io/post/di-yi-pian-blog/">
+        </link>
+        <updated>2024-06-29T08:39:46.000Z</updated>
+        <content type="html"><![CDATA[<p>哈哈哈，终于搞成功了！！！<br>
+一直想搞一个 blog 来记录一下自己的学习和生活，也是一个以后可以回忆的地方。<br>
+也欢迎大家看，评论留言。<br>
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</p>
+]]></content>
+    </entry>
+</feed>
