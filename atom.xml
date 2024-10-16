@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Big-Halo.github.io</id>
+    <title>Big-Halo</title>
+    <updated>2024-10-16T11:12:11.408Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Big-Halo.github.io"/>
+    <link rel="self" href="https://Big-Halo.github.io/atom.xml"/>
+    <subtitle>我们半推半就的人生</subtitle>
+    <logo>https://Big-Halo.github.io/images/avatar.png</logo>
+    <icon>https://Big-Halo.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Big-Halo</rights>
+    <entry>
+        <title type="html"><![CDATA[视频分析概要项目]]></title>
+        <id>https://Big-Halo.github.io/post/shi-pin-fen-xi-gai-yao-xiang-mu/</id>
+        <link href="https://Big-Halo.github.io/post/shi-pin-fen-xi-gai-yao-xiang-mu/">
+        </link>
+        <updated>2024-10-07T07:06:16.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="简介">简介</h1>
+<p>和朋友一起搞的一个小项目，但是做完感觉还是很有用的<br>
+就是一个简单的视频分析，添加字幕，提炼大纲，将大纲转换为脑图。然后我们旁边加了一个问答模块。<br>
+只需：填写api密钥--&gt;上传视频：可生成字幕、时间轴、大纲、脑图。右侧配有AI小智<br>
+<img src="https://Big-Halo.github.io/post-images/1728831833860.png" alt="" loading="lazy"></p>
+<h1 id="实现">实现</h1>
+<p><strong>其实我们这个主要也还是前端做的还行，后端都是找的工具调用。</strong></p>
+<p>前端：<br>
+HTML和CSS<br>
+HTML和CSS紧密整合，共同构建网页的基础架构。HTML负责内容和结构，而CSS负责样式和布局。两者结合使用，可以创建既具有良好视觉效果又具备清晰结构的网页，满足现代网页设计的需求。<br>
+快速开发——Bootstrap框架<br>
+还有一个ckPlayer插件<br>
+使用JavaScript和jQuery-AJAX技术进行异步请求<br>
+然后还有一个蓝图注册，可以方便以后添加模块</p>
+<p>后端：<br>
+首先就是Whisper模型语音转录<br>
+FFmpeg从视频中提取音频并生成SRT字幕文件<br>
+OpenCC文字转换<br>
+FFmpeg将SRT字幕嵌入视频<br>
+然后就是大模型部分<br>
+接入OpenAI模型，对SRT内容进行分析，得到大纲和分段概要和结束节点<br>
+最后用networkx和matplotlib据分析结果得到脑图</p>
+<h1 id="总结">总结</h1>
+<p>项目还是非常有用的，也学到了很多，也还有很多功能可以加入，之后也会继续完善。<br>
+<a href="https://github.com/Big-Halo/video-summary">Github地址</a></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2024暑假学习计划]]></title>
+        <id>https://Big-Halo.github.io/post/2024-shu-jia-xue-xi-ji-hua/</id>
+        <link href="https://Big-Halo.github.io/post/2024-shu-jia-xue-xi-ji-hua/">
+        </link>
+        <updated>2024-07-07T13:16:24.000Z</updated>
+        <content type="html"><![CDATA[<p>初找找网上模板，做一个本地网站<br>
+因为说是七月底考核，所以这一个月主要就是学CTF了<br>
+计划是滴水初级课程和ctfshow搞完，Android基础感觉是没时间搞了，只能是边做题边学了，时间还是有点紧的，任务重，加油干吧！！！<br>
+八月差不多可以先放松放松，然后搞点感兴趣的，像爬虫，autojs，数据分析什么的，的时候看看有时间弄弄。<br>
+感觉如果都做了，应该是个很充实的暑假，会提升很多，希望两个月后都能实现<br>
+<img src="https://Big-Halo.github.io/post-images/1721961668937.png" alt="" loading="lazy"><br>
+<img src="https://Big-Halo.github.io/post-images/1721961769551.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[第一篇blog]]></title>
+        <id>https://Big-Halo.github.io/post/di-yi-pian-blog/</id>
+        <link href="https://Big-Halo.github.io/post/di-yi-pian-blog/">
+        </link>
+        <updated>2024-06-29T08:39:46.000Z</updated>
+        <content type="html"><![CDATA[<p>哈哈哈，终于搞成功了！！！<br>
+一直想搞一个 blog 来记录一下自己的学习和生活，也是一个以后可以回忆的地方。<br>
+也欢迎大家看，评论留言。<br>
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️</p>
+]]></content>
+    </entry>
+</feed>
