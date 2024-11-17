@@ -1,0 +1,2825 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="keywords" content="Halo的Gridea博客">
+<meta name="description" content="我们半推半就的人生">
+<meta name="theme-color" content="#ffec99">
+<title>Big-Halo</title>
+<link rel="shortcut icon" href="/favicon.ico?v=1731860929116">
+<link rel="stylesheet" href="/media/css/mist.css">
+<link rel="stylesheet" href="/media/fonts/font-awesome.css">
+<link
+  href="//fonts.loli.net/css?family=Monda:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Rosario:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext"
+  rel="stylesheet" type="text/css">
+
+<link href="/media/hljs/styles/default.css"
+  rel="stylesheet">
+
+<link rel="stylesheet" href="/styles/main.css">
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+<script src="/media/js/jquery.js"></script>
+<script src="/media/hljs/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/velocity-animate@1.5.0/velocity.ui.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css"
+  integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js"
+  integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js"
+  integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"
+  onload="renderMathInElement(document.body);"></script>
+
+
+
+
+
+
+</head>
+
+<body>
+  <div class="head-top-line"></div>
+  <div class="header-box">
+    
+<div class="mist">
+  <header class="header bg-color ">
+    <div class="blog-header box-shadow-wrapper  " id="header">
+      <div class="nav-toggle" id="nav_toggle">
+        <div class="toggle-box">
+          <div class="line line-top"></div>
+          <div class="line line-center"></div>
+          <div class="line line-bottom"></div>
+        </div>
+      </div>
+      <div class="site-meta">       
+        <div class="site-title">
+          
+            <a href="/" class="">
+              <span class="logo-line-before">
+                <i class=""></i>
+              </span>
+              <span class="main-title">Big-Halo</span>
+              <span class="logo-line-after">
+                <i class=""></i>
+              </span>
+            </a>  
+          
+        </div>
+        
+      </div>
+      <nav class="site-nav" id="site_nav">
+        <ul id="nav_ul">
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/" target="_self">
+                  <i class="fa fa-globe"></i> 首页
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/archives" target="_self">
+                  <i class="fa fa-globe"></i> 归档
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/tags" target="_self">
+                  <i class="fa fa-globe"></i> 标签
+                </a>
+              
+            </li>
+          
+            
+            
+              
+            
+            <li class="nav-item ">
+              
+              
+                <a href="/post/about" target="_self">
+                  <i class="fa fa-globe"></i> 关于
+                </a>
+              
+            </li>
+          
+          
+            
+              <li class="nav-item ">
+                <a href="/friends/" target="_self">
+                  
+                    <i class="fa fa-address-book"></i> 友链
+                  
+                </a>
+              </li>
+            
+          
+          
+            <li id="fa_search" class="nav-item">
+              <a href="javascript:void(0);">
+                <i class="fa fa-search"></i> <span class="language" data-lan="search">搜索</span>
+              </a>
+            </li>
+          
+        </ul>
+      </nav>
+    </div>
+  </header>
+</div>
+
+<script type="text/javascript"> 
+ 
+  let showNav = true;
+
+  let navToggle = document.querySelector('#nav_toggle'),
+  siteNav = document.querySelector('#site_nav');
+  
+  function navClick() {
+    let sideBar = document.querySelector('.sidebar');
+    let navUl = document.querySelector('#nav_ul');
+    navToggle.classList.toggle('nav-toggle-active');
+    siteNav.classList.toggle('nav-menu-active');
+    if (siteNav.classList.contains('nav-menu-active')) {
+      siteNav.style = "height: " + (navUl.children.length * 42) +"px !important";
+    } else {
+      siteNav.style = "";
+    }
+  }
+
+  navToggle.addEventListener('click',navClick);  
+</script>
+  </div>
+  <div class="main-continer">
+    
+    <div
+      class="section-layout bg-color mist">
+      <div class="section-layout-wrapper">
+        <div id="sidebarMeta" class="sidebar">
+    
+<div class="sidebar-wrapper box-shadow-wrapper ">
+  <div class="sidebar-item">
+    <img class="site-author-image right-motion" src="/images/avatar.png"/>
+    <p class="site-author-name">Big-Halo</p>
+    
+    <div class="site-description right-motion">
+      
+        <p id="binft">鄙人是一名CTF的Re手/n还是一个小菜鸡，还有好多东西要学0_0/n</p>
+      
+    </div>
+    
+  </div>
+  <div class="sidebar-item side-item-stat right-motion">
+    <div class="sidebar-item-box">
+      <a href="/archives/">
+        
+        <span class="site-item-stat-count">12</span>
+        <span class="site-item-stat-name language" data-lan="article">文章</span>
+      </a>
+    </div>
+    <div class="sidebar-item-box">
+      <a href="/tags/">
+        <span class="site-item-stat-count">3</span>
+        <span class="site-item-stat-name language" data-lan="tag">标签</span>
+      </a>
+    </div>
+  </div>
+  
+  
+    <div class="sidebar-item sidebar-item-social">
+      <div class="social-item">
+        
+        
+          
+            <a class="social-img" href="#">
+              <img src="\media\images\custom-array-imgSocials-1719807380048-socialImg.jpg" />
+              <i class="fa fa-globe" title="QQ：" ></i>
+            </a>
+          
+        
+      </div>
+    </div>
+  
+
+
+
+</div>
+</div>
+<script>
+  let sidebarMeta = document.querySelector('#sidebarMeta');
+  let scheme = 'mist';
+  let sidebarWrapper = document.querySelector('.sidebar-wrapper');
+  if (sidebarMeta && (scheme === 'pisces' || scheme === 'gemini')) {
+    document.addEventListener('scroll', function(e) {
+      if (document.scrollingElement.scrollTop > parseInt(sidebarMeta.style.marginTop) + 10) {
+        sidebarWrapper.classList.add('home-sidebar-fixed')
+      } else {
+        sidebarWrapper.classList.remove('home-sidebar-fixed')
+      }
+    });
+  }
+  </script>
+        <div class="section-box tag-line box-shadow-wrapper">
+          <section class="section tags-section posts-expand bg-color">
+            <div class="padding-wrapper">
+  <div class="tag-timeline-box">
+    <div class="tag-timeline-wrapper">
+      <div class="tag-timeline-title">
+        <h2>
+          Project
+          <small class="language" data-lan="tag">标签</small>
+        </h2>
+      </div>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <a href="https://Big-Halo.github.io/post/shi-pin-fen-xi-gai-yao-xiang-mu/">
+        <div class="motion-warpper">
+          <div class="tag-post-node">
+            <h1>
+              10-07
+              <small>视频分析概要项目</small>
+            </h1>
+          </div>
+        </div>
+      </a>
+      
+      
+      
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</div>
+          </section>
+        </div>
+      </div>
+    </div>
+    <div class="footer-box">
+  <footer class="footer">
+    <center id="runTimeBox">
+      已运行:<span id="run_time"></span>
+    </center>
+    <span id="busuanzi_container_site_pv">浏览数:<span id="busuanzi_value_site_pv"></span> 次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">访客数:<span id="busuanzi_value_site_uv"></span> 人</span>
+
+    <script>
+      BirthDay = new Date('');
+      if (BirthDay.getTime()) {
+        function runTime() {
+          str = "";
+          today = new Date();
+          timeold = today.getTime() - BirthDay.getTime();
+          msPerDay = 24 * 60 * 60 * 1000;
+          e_daysold = timeold / msPerDay;
+          daysold = Math.floor(e_daysold);
+          str += daysold + "天";
+          return str;
+        }
+        setInterval(function () {
+          $("#run_time").html(runTime());
+        }, 1000);
+      } else {
+        document.querySelector('.footer').removeChild(document.querySelector('#runTimeBox'));
+      }
+    </script>
+    <div class="poweredby">
+      Powered by <a href="https://github.com/getgridea/gridea" target="_blank">Gridea</a>
+    </div>
+  </footer>
+  
+    
+      <div class="drawer-box right" id="drawer_box">
+        <span class="muse-line muse-line-first"></span>
+        <span class="muse-line muse-line-middle"></span>
+        <span class="muse-line muse-line-last"></span>
+      </div>
+      
+        <div class="mist back-to-top" id="back_to_top">
+          <i class="fa fa-arrow-up"></i>
+          
+        </div>
+        
+          
+            
+              <div class="bg-img">
+                <img src="https://cdn.jsdelivr.net/gh/Big-Halo/Js-Image/img/202406302019271.jpg" />
+              </div>
+              
+                
+                  
+                    
+<link rel="stylesheet" href="/media/live2d/css/live2d.css" />
+<div class="box-scale">
+  <div id="landlord" style="left: 5px;bottom: px;"
+    data-key="">
+    <canvas id="live2d" width="500" height="560" class="live2d"></canvas>
+    
+
+      <div class="message" style="opacity:0"></div>
+      <div class="live_talk_input_body">
+        <div class="live_talk_input_name_body">
+          <input name="name" type="text" class="live_talk_name white_input" id="AIuserName" autocomplete="off"
+            placeholder="你的名字" />
+        </div>
+        <div class="live_talk_input_text_body">
+          <input name="talk" type="text" class="live_talk_talk white_input" id="AIuserText" autocomplete="off"
+            placeholder="要和我聊什么呀？" />
+          <button type="button" class="live_talk_send_btn" id="talk_send">发送</button>
+        </div>
+      </div>
+      <input name="live_talk" id="live_talk" value="1" type="hidden" />
+      <div class="live_ico_box">
+        <div class="live_ico_item type_info" id="showInfoBtn"></div>
+        <div class="live_ico_item type_talk" id="showTalkBtn"></div>
+        
+        <div class="live_ico_item type_music" id="musicButton"></div>
+        
+        <div class="live_ico_item type_youdu" id="youduButton"></div>
+        <div class="live_ico_item type_quit" id="hideButton"></div>
+        <input name="live_statu_val" id="live_statu_val" value="0" type="hidden" />
+        <audio src="" style="display:none;" id="live2d_bgm" data-bgm="0" preload="none"></audio>
+        <input id="duType" value="douqilai" type="hidden">
+        
+        <input name="live2dBGM" value="" type="hidden">
+        
+      </div>
+    
+  </div>
+</div>
+<div id="open_live2d">召唤看板娘</div>
+<script>
+  var message_Path = 'https://cdn.jsdelivr.net/gh/hsxyhao/live2d.github.io@master/';
+  let landlord = document.querySelector('#landlord');
+  var apiKey = landlord.dataset.key;
+</script>
+<script type="text/javascript" src="/media/live2d/js/live2d.js"></script>
+<script>
+	var home_Path = document.location.protocol + '//' + window.document.location.hostname + ":" + window.document.location.port + '/';
+	var userAgent = window.navigator.userAgent.toLowerCase();
+	var norunAI = ["android", "iphone", "ipod", "ipad", "windows phone", "mqqbrowser", "msie", "trident/7.0"];
+	var norunFlag = false;
+
+	for (var i = 0; i < norunAI.length; i++) {
+		if (userAgent.indexOf(norunAI[i]) > -1) {
+			norunFlag = true;
+			break;
+		}
+	}
+
+	if (!window.WebGLRenderingContext) {
+		norunFlag = true;
+	}
+
+	if (!norunFlag) {
+		var hitFlag = false;
+		var AIFadeFlag = false;
+		var liveTlakTimer = null;
+		var sleepTimer_ = null;
+		var AITalkFlag = false;
+		var talkNum = 0;
+		(function () {
+			function renderTip(template, context) {
+				var tokenReg = /(\\)?\{([^\{\}\\]+)(\\)?\}/g;
+				return template.replace(tokenReg, function (word, slash1, token, slash2) {
+					if (slash1 || slash2) {
+						return word.replace('\\', '');
+					}
+					var variables = token.replace(/\s/g, '').split('.');
+					var currentObject = context;
+					var i, length, variable;
+					for (i = 0, length = variables.length; i < length; ++i) {
+						variable = variables[i];
+						currentObject = currentObject[variable];
+						if (currentObject === undefined || currentObject === null) return '';
+					}
+					return currentObject;
+				});
+			}
+
+			String.prototype.renderTip = function (context) {
+				return renderTip(this, context);
+			};
+
+			var re = /x/;
+			re.toString = function () {
+				showMessage('哈哈，你打开了控制台，是想要看看我的秘密吗？', 5000);
+				return '';
+			};
+
+			$(document).on('copy', function () {
+				showMessage('你都复制了些什么呀，转载要记得加上出处哦~~', 5000);
+			});
+
+			function initTips() {
+				$.ajax({
+					cache: true,
+					url: message_Path + 'message.json',
+					dataType: "json",
+					success: function (result) {
+						$.each(result.mouseover, function (index, tips) {
+							$(tips.selector).mouseover(function () {
+								var text = tips.text;
+								if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
+								text = text.renderTip({ text: $(this).text() });
+								showMessage(text, 3000);
+								talkValTimer();
+								clearInterval(liveTlakTimer);
+								liveTlakTimer = null;
+							});
+							$(tips.selector).mouseout(function () {
+								showHitokoto();
+								if (liveTlakTimer == null) {
+									liveTlakTimer = window.setInterval(function () {
+										showHitokoto();
+									}, 15000);
+								};
+							});
+						});
+						$.each(result.click, function (index, tips) {
+							$(tips.selector).click(function () {
+								if (hitFlag) {
+									return false
+								}
+								hitFlag = true;
+								setTimeout(function () {
+									hitFlag = false;
+								}, 8000);
+								var text = tips.text;
+								if (Array.isArray(tips.text)) text = tips.text[Math.floor(Math.random() * tips.text.length + 1) - 1];
+								text = text.renderTip({ text: $(this).text() });
+								showMessage(text, 3000);
+							});
+							clearInterval(liveTlakTimer);
+							liveTlakTimer = null;
+							if (liveTlakTimer == null) {
+								liveTlakTimer = window.setInterval(function () {
+									showHitokoto();
+								}, 15000);
+							};
+						});
+					}
+				});
+			}
+			initTips();
+
+			var text;
+			if (document.referrer !== '') {
+				var referrer = document.createElement('a');
+				referrer.href = document.referrer;
+				text = '嗨！来自 <span style="color:#0099cc;">' + referrer.hostname + '</span> 的朋友！';
+				var domain = referrer.hostname.split('.')[1];
+				if (domain == 'baidu') {
+					text = '嗨！ 来自 百度搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				} else if (domain == 'so') {
+					text = '嗨！ 来自 360搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				} else if (domain == 'google') {
+					text = '嗨！ 来自 谷歌搜索 的朋友！<br>欢迎访问<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				}
+			} else {
+				if (window.location.href == home_Path) { //主页URL判断，需要斜杠结尾
+					var now = (new Date()).getHours();
+					if (now > 23 || now <= 5) {
+						text = '你是夜猫子呀？这么晚还不睡觉，明天起的来嘛？';
+					} else if (now > 5 && now <= 7) {
+						text = '早上好！一日之计在于晨，美好的一天就要开始了！';
+					} else if (now > 7 && now <= 11) {
+						text = '上午好！工作顺利嘛，不要久坐，多起来走动走动哦！';
+					} else if (now > 11 && now <= 14) {
+						text = '中午了，工作了一个上午，现在是午餐时间！';
+					} else if (now > 14 && now <= 17) {
+						text = '午后很容易犯困呢，今天的运动目标完成了吗？';
+					} else if (now > 17 && now <= 19) {
+						text = '傍晚了！窗外夕阳的景色很美丽呢，最美不过夕阳红~~';
+					} else if (now > 19 && now <= 21) {
+						text = '晚上好，今天过得怎么样？';
+					} else if (now > 21 && now <= 23) {
+						text = '已经这么晚了呀，早点休息吧，晚安~~';
+					} else {
+						text = '嗨~ 快来逗我玩吧！';
+					}
+				} else {
+					text = '欢迎阅读<span style="color:#0099cc;">「 ' + document.title.split(' - ')[0] + ' 」</span>';
+				}
+			}
+			showMessage(text, 12000);
+		})();
+
+		liveTlakTimer = setInterval(function () {
+			showHitokoto();
+		}, 15000);
+
+		function showHitokoto() {
+			if (sessionStorage.getItem("Sleepy") !== "1") {
+				if (!AITalkFlag) {
+					$.getJSON('https://v1.hitokoto.cn/', function (result) {
+						talkValTimer();
+						showMessage(result.hitokoto, 0);
+					});
+				}
+			} else {
+				hideMessage(0);
+				if (sleepTimer_ == null) {
+					sleepTimer_ = setInterval(function () {
+						checkSleep();
+					}, 200);
+				}
+			}
+		}
+
+		function checkSleep() {
+			var sleepStatu = sessionStorage.getItem("Sleepy");
+			if (sleepStatu !== '1') {
+				talkValTimer();
+				showMessage('你回来啦~', 0);
+				clearInterval(sleepTimer_);
+				sleepTimer_ = null;
+			}
+		}
+
+		function showMessage(text, timeout) {
+			if (Array.isArray(text)) text = text[Math.floor(Math.random() * text.length + 1) - 1];
+			$('.message').stop();
+			$('.message').html(text);
+			$('.message').fadeTo(200, 1);
+			//if (timeout === null) timeout = 5000;
+			//hideMessage(timeout);
+		}
+		function talkValTimer() {
+			$('#live_talk').val('1');
+		}
+
+		function hideMessage(timeout) {
+			//$('.message').stop().css('opacity',1);
+			if (timeout === null) timeout = 5000;
+			$('.message').delay(timeout).fadeTo(200, 0);
+		}
+
+		function initLive2d() {
+			$('#hideButton').on('click', function () {
+				if (AIFadeFlag) {
+					return false;
+				} else {
+					AIFadeFlag = true;
+					localStorage.setItem("live2dhidden", "0");
+					$('#landlord').fadeOut(200);
+					$('#open_live2d').delay(200).fadeIn(200);
+					setTimeout(function () {
+						AIFadeFlag = false;
+					}, 300);
+				}
+			});
+			$('#open_live2d').on('click', function () {
+				if (AIFadeFlag) {
+					return false;
+				} else {
+					AIFadeFlag = true;
+					localStorage.setItem("live2dhidden", "1");
+					$('#open_live2d').fadeOut(200);
+					$('#landlord').delay(200).fadeIn(200);
+					setTimeout(function () {
+						AIFadeFlag = false;
+					}, 300);
+				}
+			});
+			$('#youduButton').on('click', function () {
+				if ($('#youduButton').hasClass('doudong')) {
+					var typeIs = $('#youduButton').attr('data-type');
+					$('#youduButton').removeClass('doudong');
+					$('body').removeClass(typeIs);
+					$('#youduButton').attr('data-type', '');
+				} else {
+					var duType = $('#duType').val();
+					var duArr = duType.split(",");
+					var dataType = duArr[Math.floor(Math.random() * duArr.length)];
+
+					$('#youduButton').addClass('doudong');
+					$('#youduButton').attr('data-type', dataType);
+					$('body').addClass(dataType);
+				}
+			});
+			if (apiKey) {
+				$('#showInfoBtn').on('click', function () {
+					var live_statu = $('#live_statu_val').val();
+					if (live_statu == "0") {
+						return
+					} else {
+						$('#live_statu_val').val("0");
+						$('.live_talk_input_body').fadeOut(500);
+						AITalkFlag = false;
+						showHitokoto();
+						$('#showTalkBtn').show();
+						$('#showInfoBtn').hide();
+					}
+				});
+				$('#showTalkBtn').on('click', function () {
+					var live_statu = $('#live_statu_val').val();
+					if (live_statu == "1") {
+						return
+					} else {
+						$('#live_statu_val').val("1");
+						$('.live_talk_input_body').fadeIn(500);
+						AITalkFlag = true;
+						$('#showTalkBtn').hide();
+						$('#showInfoBtn').show();
+
+					}
+				});
+				$('#talk_send').on('click', function () {
+					var info_ = $('#AIuserText').val();
+					var userid_ = $('#AIuserName').val();
+					if (info_ == "") {
+						showMessage('写点什么吧！', 0);
+						return;
+					}
+					if (userid_ == "") {
+						showMessage('聊之前请告诉我你的名字吧！', 0);
+						return;
+					}
+					showMessage('思考中~', 0);
+					let protocol = window.location.protocol.indexOf("s") > 0 ? "https" : "http";
+					$.ajax({
+						type: "get",
+						url: `${protocol}://www.tuling123.com/openapi/api?key=${apiKey}&info=${info_}`,
+						dataType: "json",
+						success: function (res) {
+							talkValTimer();
+							showMessage(res.text, 0);
+							$('#AIuserText').val("");
+							sessionStorage.setItem("live2duser", userid_);
+						},
+						error: function (e) {
+							talkValTimer();
+							showMessage('似乎有什么错误，请和站长联系！', 0);
+						}
+					});
+				});
+			} else {
+				$('#showInfoBtn').hide();
+				$('#showTalkBtn').hide();
+			}
+			//获取音乐信息初始化
+			var bgmListInfo = $('input[name=live2dBGM]');
+			if (bgmListInfo.length == 0) {
+				$('#musicButton').hide();
+			} else {
+				var bgmPlayNow = parseInt($('#live2d_bgm').attr('data-bgm'));
+				var bgmPlayTime = 0;
+				var live2dBGM_Num = sessionStorage.getItem("live2dBGM_Num");
+				var live2dBGM_PlayTime = sessionStorage.getItem("live2dBGM_PlayTime");
+				if (live2dBGM_Num) {
+					if (live2dBGM_Num <= $('input[name=live2dBGM]').length - 1) {
+						bgmPlayNow = parseInt(live2dBGM_Num);
+					}
+				}
+				if (live2dBGM_PlayTime) {
+					bgmPlayTime = parseInt(live2dBGM_PlayTime);
+				}
+				var live2dBGMSrc = bgmListInfo.eq(bgmPlayNow).val();
+				$('#live2d_bgm').attr('data-bgm', bgmPlayNow);
+				$('#live2d_bgm').attr('src', live2dBGMSrc);
+				$('#live2d_bgm')[0].currentTime = bgmPlayTime;
+				$('#live2d_bgm')[0].volume = 0.5;
+				var live2dBGM_IsPlay = sessionStorage.getItem("live2dBGM_IsPlay");
+				var live2dBGM_WindowClose = sessionStorage.getItem("live2dBGM_WindowClose");
+				if (live2dBGM_IsPlay == '0' && live2dBGM_WindowClose == '0') {
+					$('#live2d_bgm')[0].play();
+					$('#musicButton').addClass('play');
+				}
+				sessionStorage.setItem("live2dBGM_WindowClose", '1');
+				$('#musicButton').on('click', function () {
+					if ($('#musicButton').hasClass('play')) {
+						$('#live2d_bgm')[0].pause();
+						$('#musicButton').removeClass('play');
+						sessionStorage.setItem("live2dBGM_IsPlay", '1');
+					} else {
+						$('#live2d_bgm')[0].play();
+						$('#musicButton').addClass('play');
+						sessionStorage.setItem("live2dBGM_IsPlay", '0');
+					}
+				});
+				window.onbeforeunload = function () {
+					sessionStorage.setItem("live2dBGM_WindowClose", '0');
+					if ($('#musicButton').hasClass('play')) {
+						sessionStorage.setItem("live2dBGM_IsPlay", '0');
+					}
+				}
+				document.getElementById('live2d_bgm').addEventListener("timeupdate", function () {
+					var live2dBgmPlayTimeNow = document.getElementById('live2d_bgm').currentTime;
+					sessionStorage.setItem("live2dBGM_PlayTime", live2dBgmPlayTimeNow);
+				});
+				document.getElementById('live2d_bgm').addEventListener("ended", function () {
+					var listNow = parseInt($('#live2d_bgm').attr('data-bgm'));
+					listNow++;
+					if (listNow > $('input[name=live2dBGM]').length - 1) {
+						listNow = 0;
+					}
+					var listNewSrc = $('input[name=live2dBGM]').eq(listNow).val();
+					sessionStorage.setItem("live2dBGM_Num", listNow);
+					$('#live2d_bgm').attr('src', listNewSrc);
+					$('#live2d_bgm')[0].play();
+					$('#live2d_bgm').attr('data-bgm', listNow);
+				});
+				document.getElementById('live2d_bgm').addEventListener("error", function () {
+					$('#live2d_bgm')[0].pause();
+					$('#musicButton').removeClass('play');
+					showMessage('音乐似乎加载不出来了呢！', 0);
+				});
+			}
+			//获取用户名
+			var live2dUser = sessionStorage.getItem("live2duser");
+			if (live2dUser !== null) {
+				$('#AIuserName').val(live2dUser);
+			}
+			//获取位置
+			var landL = sessionStorage.getItem("historywidth");
+			var landB = sessionStorage.getItem("historyheight");
+			if (landL == null || landB == null) {
+				landL = '5px'
+				landB = '0px'
+			}
+			$('#landlord').css('left', landL + 'px');
+			$('#landlord').css('bottom', landB + 'px');
+			//移动
+			function getEvent() {
+				return window.event || arguments.callee.caller.arguments[0];
+			}
+			var smcc = document.getElementById("landlord");
+			var moveX = 0;
+			var moveY = 0;
+			var moveBottom = 0;
+			var moveLeft = 0;
+			var moveable = false;
+			var docMouseMoveEvent = document.onmousemove;
+			var docMouseUpEvent = document.onmouseup;
+			smcc.onmousedown = function () {
+				var ent = getEvent();
+				moveable = true;
+				moveX = ent.clientX;
+				moveY = ent.clientY;
+				var obj = smcc;
+				moveBottom = parseInt(obj.style.bottom);
+				moveLeft = parseInt(obj.style.left);
+				if (isFirefox = navigator.userAgent.indexOf("Firefox") > 0) {
+					window.getSelection().removeAllRanges();
+				}
+				document.onmousemove = function () {
+					if (moveable) {
+						var ent = getEvent();
+						var x = moveLeft + ent.clientX - moveX;
+						var y = moveBottom + (moveY - ent.clientY);
+						obj.style.left = x + "px";
+						obj.style.bottom = y + "px";
+					}
+				};
+				document.onmouseup = function () {
+					if (moveable) {
+						var historywidth = obj.style.left;
+						var historyheight = obj.style.bottom;
+						historywidth = historywidth.replace('px', '');
+						historyheight = historyheight.replace('px', '');
+						sessionStorage.setItem("historywidth", historywidth);
+						sessionStorage.setItem("historyheight", historyheight);
+						document.onmousemove = docMouseMoveEvent;
+						document.onmouseup = docMouseUpEvent;
+						moveable = false;
+						moveX = 0;
+						moveY = 0;
+						moveBottom = 0;
+						moveLeft = 0;
+					}
+				};
+			};
+		}
+		$(document).ready(function () {
+			var AIimgSrc = [];
+			let chooseLive2d = 'rem'
+			if (chooseLive2d === 'histoire') {
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_00.png");
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_01.png");
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_02.png");
+				AIimgSrc.push(message_Path + "model/histoire/histoire.1024/texture_03.png");
+			} else if (chooseLive2d === 'rem') {
+				AIimgSrc.push(message_Path + "model/rem/remu2048/texture_00.png");
+			} else if (chooseLive2d === 'aoba') {
+				AIimgSrc.push(message_Path + "model/aoba/textures/texture_00.png");
+			} else if (chooseLive2d === 'hijiki') {
+				AIimgSrc.push(message_Path + "model/hijiki/moc/hijiki.2048/texture_00.png");
+			} else if (chooseLive2d === 'tororo') {
+				AIimgSrc.push(message_Path + "model/tororo/moc/tororo.2048/texture_00.png");
+			}
+			var images = [];
+			var imgLength = AIimgSrc.length;
+			var loadingNum = 0;
+			for (var i = 0; i < imgLength; i++) {
+				images[i] = new Image();
+				images[i].src = AIimgSrc[i];
+				images[i].onload = function () {
+					loadingNum++;
+					if (loadingNum === imgLength) {
+						var live2dhidden = localStorage.getItem("live2dhidden");
+						if (live2dhidden === "0") {
+							setTimeout(function () {
+								$('#open_live2d').fadeIn(200);
+							}, 1300);
+						} else {
+							setTimeout(function () {
+								$('#landlord').fadeIn(200);
+							}, 1300);
+						}
+						let model = '';
+						if (chooseLive2d === 'histoire') {
+							model = message_Path + "model/histoire/model.json";
+						} else if (chooseLive2d === 'rem') {
+							model = message_Path + "model/rem/model.json";
+						} else if (chooseLive2d === 'aoba') {
+							model = message_Path + "model/aoba/model.json";
+						} else if (chooseLive2d === 'hijiki') {
+							model = message_Path + "model/hijiki/hijiki.model.json";
+						} else if (chooseLive2d === 'tororo') {
+							model = message_Path + "model/tororo/tororo.model.json";
+						}
+						setTimeout(function () {
+							loadlive2d("live2d", model);
+						}, 1000);
+						initLive2d();
+						images = null;
+					}
+				}
+			}
+		});
+	}
+</script>
+                      
+                        
+                          
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/aplayer@1.10.1/dist/APlayer.min.js"></script>
+  <div class="aplayer" id="aplayer"></div>
+  <script>
+  let musics = JSON.parse('[{"author":"","cover":"","lrc":"","musicLink":"","musicName":""}]');
+  let mediaMusic = [];
+  for (let i = 0; i < musics.length; i++) {
+    let item = musics[i];
+    mediaMusic.push({
+      name: item.musicName,
+      artist: item.author,
+      url: item.musicLink,
+      lrc: item.lrc,
+      cover: item.cover
+    });
+  }
+
+  const ap = new APlayer({
+      container: document.getElementById('aplayer'),
+      fixed: true,
+      lrcType: 3,
+      listFolded: false,
+      listMaxHeight: 90,
+      audio: mediaMusic
+  });
+  window.addEventListener('load', function() {
+    let postBody = document.querySelector('#post_body');
+    let hs = ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'];
+    postBody && hs.forEach(h => {
+      let helems = postBody.querySelectorAll(h);
+      if (helems.length > 0) {
+        helems.forEach(elem => {
+          elem.id = encodeURI(elem.id);
+        })
+      }
+    })
+  })
+  </script>
+
+<link rel="stylesheet" href="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.css">
+<script src="https://unpkg.com/aplayer@1.10.1/dist/APlayer.min.js"></script>
+
+<script src="https://unpkg.com/meting@2.0.1/dist/Meting.min.js"></script>
+
+<meting-js
+	server="netease"
+	type="playlist"
+	fixed="true"
+	id="3136952023">
+</meting-js>
+
+
+
+
+                            
+</div>
+<script>
+  let sideBarOpen = "sidebar-open";
+  let body = document.body;
+  let back2Top = document.querySelector("#back_to_top"),
+    back2TopText = document.querySelector("#back_to_top_text"),
+    drawerBox = document.querySelector("#drawer_box"),
+    rightSideBar = document.querySelector(".sidebar"),
+    viewport = document.querySelector("body");
+
+  function scrollAnimation(currentY, targetY) {
+    let needScrollTop = targetY - currentY;
+    let _currentY = currentY;
+    setTimeout(() => {
+      const dist = Math.ceil(needScrollTop / 10);
+      _currentY += dist;
+      window.scrollTo(_currentY, currentY);
+      if (needScrollTop > 10 || needScrollTop < -10) {
+        scrollAnimation(_currentY, targetY);
+      } else {
+        window.scrollTo(_currentY, targetY);
+      }
+    }, 1);
+  }
+
+  back2Top.addEventListener("click", function (e) {
+    scrollAnimation(document.scrollingElement.scrollTop, 0);
+    e.stopPropagation();
+    return false;
+  });
+
+  window.addEventListener("scroll", function (e) {
+    let percent =
+      (document.scrollingElement.scrollTop /
+        (document.scrollingElement.scrollHeight -
+          document.scrollingElement.clientHeight)) *
+      100;
+    if (percent > 1 && !back2Top.classList.contains("back-top-active")) {
+      back2Top.classList.add("back-top-active");
+    }
+    if (percent == 0) {
+      back2Top.classList.remove("back-top-active");
+    }
+    if (back2TopText) {
+      back2TopText.textContent = Math.floor(percent);
+    }
+  });
+
+  let hasCacu = false;
+  window.addEventListener("resize", function (e) {
+    calcuHeight();
+  });
+
+  function calcuHeight() {
+    // 动态调整站点概览高度
+    if (
+      (!hasCacu && back2Top.classList.contains("pisces")) ||
+      back2Top.classList.contains("gemini")
+    ) {
+      let sideBar = document.querySelector(".sidebar");
+      let navUl = document.querySelector("#site_nav");
+      sideBar.style =
+        "margin-top:" + (navUl.offsetHeight + navUl.offsetTop + 15) + "px;";
+      hasCacu = true;
+    }
+  }
+  calcuHeight();
+
+  let open = false,
+    MOTION_TIME = 300,
+    RIGHT_MOVE_DIS = "320px";
+
+  if (drawerBox) {
+    let rightMotions = document.querySelectorAll(".right-motion");
+    let right = drawerBox.classList.contains("right");
+
+    let transitionDir = right
+      ? "transition.slideRightIn"
+      : "transition.slideLeftIn";
+
+    let openProp, closeProp;
+    if (right) {
+      openProp = {
+        paddingRight: RIGHT_MOVE_DIS,
+      };
+      closeProp = {
+        paddingRight: "0px",
+      };
+    } else {
+      openProp = {
+        paddingLeft: RIGHT_MOVE_DIS,
+      };
+      closeProp = {
+        paddingLeft: "0px",
+      };
+    }
+
+    drawerBox.onclick = function () {
+      open = !open;
+      jQuery.Velocity(rightSideBar, "stop");
+      jQuery.Velocity(viewport, "stop");
+      jQuery.Velocity(rightMotions, "stop");
+      if (open) {
+        jQuery.Velocity(
+          rightSideBar,
+          {
+            width: RIGHT_MOVE_DIS,
+          },
+          {
+            duration: MOTION_TIME,
+            begin: function () {
+              jQuery.Velocity(rightMotions, transitionDir, {});
+            },
+          }
+        );
+        jQuery.Velocity(viewport, openProp, {
+          duration: MOTION_TIME,
+        });
+      } else {
+        jQuery.Velocity(
+          rightSideBar,
+          {
+            width: "0px",
+          },
+          {
+            duration: MOTION_TIME,
+            begin: function () {
+              jQuery.Velocity(rightMotions, {
+                opacity: 0,
+              });
+            },
+          }
+        );
+        jQuery.Velocity(viewport, closeProp, {
+          duration: MOTION_TIME,
+        });
+      }
+      for (let i = 0; i < drawerBox.children.length; i++) {
+        drawerBox.children[i].classList.toggle("muse-line");
+      }
+      drawerBox.classList.toggle(sideBarOpen);
+    };
+  }
+
+  // 链接跳转
+  let newWindow = "false";
+  if (newWindow === "true") {
+    let links = document.querySelectorAll(".post-body a");
+    links.forEach((item) => {
+      if (!item.classList.contains("btn")) {
+        item.setAttribute("target", "_blank");
+      }
+    });
+  }
+
+  let faSearch = document.querySelector("#fa_search");
+  faSearch &&
+    faSearch.addEventListener("click", function () {
+      document.querySelector("#search_mask").style = "";
+    });
+
+  // 代码高亮
+  hljs.initHighlightingOnLoad();
+
+  // 离开当前页title变化
+  var leaveTitle = "";
+  var normal_title = document.title;
+  if (leaveTitle) {
+    document.addEventListener("visibilitychange", function () {
+      if (document.visibilityState == "hidden") {
+        normal_title = document.title;
+        document.title = leaveTitle;
+      } else {
+        document.title = normal_title;
+      }
+    });
+  }
+</script>
+
+<link rel="stylesheet" href="/media/css/jquery.fancybox.css" />
+<script src="/media/js/jquery.fancybox.js"></script>
+
+<script>
+  let images = document.querySelectorAll(".section img");
+  images.forEach((image) => {
+    var parent = image.parentElement;
+    var next = image.nextElementSibling;
+    parent.removeChild(image);
+    var aelem = document.createElement("a");
+    aelem.href = image.src;
+    aelem.dataset["fancybox"] = "images";
+    aelem.dataset["rel"] = "fancybox-button";
+    aelem.classList.add("fancybox");
+    aelem.appendChild(image);
+    parent.insertBefore(aelem, next);
+  });
+</script>
+  </div>
+</body>
+
+  <div class="search-mask" id="search_mask" style="display: none;">
+  <div class="search-box">
+    <div class="search-title">
+      <i class="fa fa-search"></i>
+      <div class="input-box">
+        <input id="search" type="text" class="language" data-lan="search" placeholder="搜索">
+      </div>
+      <i id="close" class="fa fa-times-circle"></i>
+    </div>
+    <div class="stat-box">
+      <span id="stat_count">0</span><span class="language" data-lan="stat">条相关条目，使用了</span><span id="stat_times">0</span><span class="language" data-lan="stat-time">毫秒</span>
+      <hr>
+    </div>
+    <div class="result" id="result">
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/2024-11-thirdweek/"" data-c="
+          &lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;这周怎么说，有一点沉迷于game了，东西太多了，感觉总是搞不完，容易放弃。&lt;/p&gt;
+&lt;h1 id=&#34;have-done&#34;&gt;Have done&lt;/h1&gt;
+&lt;p&gt;把随想录的单调栈搞完了。&lt;br&gt;
+然后就是每天的任务，三道题和练中学。&lt;br&gt;
+把期中考试搞完了。&lt;br&gt;
+csapp看了一点。&lt;/p&gt;
+&lt;h1 id=&#34;not-did&#34;&gt;Not did&lt;/h1&gt;
+&lt;p&gt;csapp说搞，进度推不上去。&lt;br&gt;
+随想录的复习&lt;/p&gt;
+&lt;h1 id=&#34;to-do&#34;&gt;To do&lt;/h1&gt;
+&lt;p&gt;先学学怎么git推送。&lt;br&gt;
+随想录赶紧干&lt;br&gt;
+csapp也要赶&lt;br&gt;
+把华为ict确定大概&lt;br&gt;
+服务器看能不能落实&lt;br&gt;
+还有就是黑马的苍穹外卖及狂神的Java&lt;/p&gt;
+&lt;p&gt;任重道远啊 0.o&lt;/p&gt;
+">2024-11-thirdWeek</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/dan-diao-zhan/"" data-c="
+          &lt;h1 id=&#34;introducing&#34;&gt;Introducing&lt;/h1&gt;
+&lt;p&gt;通常是一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置。&lt;br&gt;
+本质是空间换时间。&lt;br&gt;
+也就是来记录遍历过的元素。&lt;/p&gt;
+&lt;h1 id=&#34;steps&#34;&gt;Steps&lt;/h1&gt;
+&lt;ol&gt;
+&lt;li&gt;单调栈里存放元素的含义&lt;/li&gt;
+&lt;li&gt;单调栈中元素的顺序&lt;br&gt;
+是递增还是递减&lt;br&gt;
+单调递增对应是找右边第一个比其大的元素&lt;/li&gt;
+&lt;li&gt;对栈元素的判断使用&lt;br&gt;
+就是当前遍历的元素与栈顶元素的比较&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id=&#34;practices&#34;&gt;Practices&lt;/h1&gt;
+&lt;h2 id=&#34;每日温度&#34;&gt;每日温度&lt;/h2&gt;
+&lt;p&gt;请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。&lt;br&gt;
+例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。&lt;br&gt;
+提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。&lt;/p&gt;
+&lt;h3 id=&#34;idea&#34;&gt;idea&lt;/h3&gt;
+&lt;p&gt;刚开始看的时候还是比较懵的，看了讲解，好了一些。这个也就是按照三部曲，先开始遍历temps数组，单调栈中存放的是元素的下标，因为要找比其大的元素所以是递增顺序，可以自己模拟一下去理解。&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1731502143197.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+开头元素下标入栈后，后面当前元素大于栈顶元素时先pop栈顶元素，然后当前元素下标入栈，一直到遍历完。那个res[i]的下标i就是pop出的下标值。&lt;/p&gt;
+&lt;h3 id=&#34;exp&#34;&gt;exp&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;vector&amp;lt;int&amp;gt; tempList(vector&amp;lt;int&amp;gt;&amp;amp; temperatures) {
+	int n = temperatures.size();
+	stack&amp;lt;int&amp;gt; st;
+	vector&amp;lt;int&amp;gt; res(n,0);
+	st.push(0);
+	for (int i = 1; i &amp;lt; n; i++) {
+		// same condition
+		//if (temperatures[i] &amp;gt; temperatures[st.top()]) {
+		//	// curElement VS stackTopElement
+		//	res[st.top()] = i - st.top();
+		//	st.pop();
+		//	st.push(i);
+		//}
+		if (temperatures[i] &amp;lt; temperatures[st.top()]) {
+			st.push(i);
+		}
+		else if (temperatures[i] == temperatures[st.top()]) {
+			st.push(i);
+		}
+		else {
+			// continuous judgement
+			while (!st.empty() &amp;amp;&amp;amp; temperatures[i] &amp;gt; temperatures[st.top()]) {
+				res[st.top()] = i - st.top();
+				st.pop();
+			}
+			st.push(i);
+		}
+	}
+	return res;
+}
+// streamline
+vector&amp;lt;int&amp;gt; dailyTemperatures(vector&amp;lt;int&amp;gt;&amp;amp; T) {
+	stack&amp;lt;int&amp;gt; st; // 递增栈
+	vector&amp;lt;int&amp;gt; result(T.size(), 0);
+	for (int i = 0; i &amp;lt; T.size(); i++) {
+		while (!st.empty() &amp;amp;&amp;amp; T[i] &amp;gt; T[st.top()]) { // 注意栈不能为空
+			result[st.top()] = i - st.top();
+			st.pop();
+		}
+		st.push(i);
+
+	}
+	return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;下一个更大元素-i&#34;&gt;下一个更大元素 I&lt;/h2&gt;
+&lt;p&gt;给你两个 没有重复元素 的数组 nums1 和 nums2 ，其中nums1 是 nums2 的子集。&lt;br&gt;
+请你找出 nums1 中每个元素在 nums2 中的下一个比其大的值。&lt;br&gt;
+nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出 -1 。&lt;br&gt;
+输入: nums1 = [4,1,2], nums2 = [1,3,4,2].&lt;br&gt;
+输出: [-1,3,-1]&lt;br&gt;
+解释:&lt;br&gt;
+对于 num1 中的数字 4 ，你无法在第二个数组中找到下一个更大的数字，因此输出 -1 。&lt;br&gt;
+对于 num1 中的数字 1 ，第二个数组中数字1右边的下一个较大数字是 3 。&lt;br&gt;
+对于 num1 中的数字 2 ，第二个数组中没有下一个更大的数字，因此输出 -1 。&lt;/p&gt;
+&lt;h3 id=&#34;idea-2&#34;&gt;idea&lt;/h3&gt;
+&lt;p&gt;就是上面题目的进阶版，先要找到nums1在nums2的位置，然后往后找。还有从什么遍历，我觉得应该是遍历nums2去找nums1，好像也不太对，也是要有n层for循环。&lt;strong&gt;在哪里寻找就在哪里遍历&lt;/strong&gt;&lt;br&gt;
+然后就是nums1与nums2的联系，需要一个映射关系，遍历nums2，需要找是否在nums1出现，若有，则在nums1对应下标位置res填充在nums2找到的大元素，需要一个哈希映射，这里用到是map，KV的存储结构，&lt;strong&gt;unordered_map&amp;lt;k,v&amp;gt;&lt;/strong&gt;。&lt;br&gt;
+&lt;strong&gt;栈存放的还是nums2的下标，对nums2使用单调栈操作，最后在收获结果的时候，通过哈希map映射，对res对应进行赋值&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;exp-2&#34;&gt;exp&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;quot;headers.cpp&amp;quot;
+#include &amp;lt;unordered_map&amp;gt;
+vector&amp;lt;int&amp;gt; nextGreaterElement(vector&amp;lt;int&amp;gt;&amp;amp; nums1, vector&amp;lt;int&amp;gt;&amp;amp; nums2) {
+	int m = nums1.size();
+	int n = nums2.size();
+	vector&amp;lt;int&amp;gt; res(m, -1);  // init -1
+	if (nums1.empty())
+		return res;
+	unordered_map&amp;lt;int, int&amp;gt; umap;  // key: nums1[i],value: i
+	for (int i = 0; i &amp;lt; m; i++)
+		umap[nums1[i]] = i;
+
+	stack&amp;lt;int&amp;gt; st;                 // collect the index of nums2
+	st.push(0);
+	for (int i = 1; i &amp;lt; n; i++) {
+		if (nums2[i] &amp;lt; nums2[st.top()]) {
+			st.push(i);
+		}
+		else if (nums2[i] == nums2[st.top()]) {
+			st.push(i);
+		}
+		else {
+			while (!st.empty() &amp;amp;&amp;amp; nums2[i] &amp;gt; nums2[st.top()]) {
+				// first check whether exists in nums1
+				if (umap.count(nums2[st.top()]) &amp;gt; 0) {
+					// count 返回 1 表示存在，0 表示不存在
+					int index = umap[nums2[st.top()]];  // 根据映射找到nums1对应下标
+					res[index] = nums2[i];
+				}
+				st.pop();
+			}
+			st.push(i);
+		}
+	}
+	return res;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;下一个更大元素-ii&#34;&gt;下一个更大元素 II&lt;/h2&gt;
+&lt;p&gt;给定一个循环数组（最后一个元素的下一个元素是数组的第一个元素），输出每个元素的下一个更大元素。数字 x 的下一个更大的元素是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出 -1。&lt;/p&gt;
+&lt;p&gt;输入: [1,2,1]&lt;br&gt;
+输出: [2,-1,2]&lt;br&gt;
+解释: 第一个 1 的下一个更大的数是 2；数字 2 找不到下一个更大的数；第二个 1 的下一个最大的数需要循环搜索，结果也是 2。&lt;/p&gt;
+&lt;h3 id=&#34;idea-3&#34;&gt;idea&lt;/h3&gt;
+&lt;p&gt;又套了一个壳子，就是要处理这个循环问题。&lt;br&gt;
+应该就是把最后一个res[n-1]用res[0]赋值就可以了，好像有点问题，因为头尾元素可能不一样。&lt;br&gt;
+首先，可以再次线性拼接以模拟成环。&lt;br&gt;
+或者，&lt;strong&gt;对于成环和首尾相连用取模的方法来做&lt;/strong&gt;。&lt;/p&gt;
+&lt;h3 id=&#34;exp-3&#34;&gt;exp&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;// compose 
+vector&amp;lt;int&amp;gt; nextGreaterElements(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+	vector&amp;lt;int&amp;gt; copy(nums.begin(), nums.end());
+	// iterator insert (iterator position, InputIterator first, InputIterator last);
+	nums.insert(nums.end(), copy.begin(), copy.end());
+	vector&amp;lt;int&amp;gt; res(nums.size(), -1);
+	if (nums.size() == 0)
+		return res;
+	stack&amp;lt;int&amp;gt; st;
+	st.push(0);
+	for (int i = 1; i &amp;lt; nums.size(); i++) {
+		if (nums[i] &amp;lt; nums[st.top()])
+			st.push(i);
+		else if (nums[i] == nums[st.top()])
+			st.push(i);
+		else {
+			while (!st.empty() &amp;amp;&amp;amp; nums[i] &amp;gt; nums[st.top()]) {
+				res[st.top()] = nums[i];
+				st.pop();
+			}
+			st.push(i);
+		}
+	}
+	// finally solve resArray
+	res.resize(nums.size() / 2);
+	return res;
+}
+
+// mod
+vector&amp;lt;int&amp;gt; nextGreaterElementsMod(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+	int n = nums.size();
+	vector&amp;lt;int&amp;gt; res(n, -1);
+	if (n == 0)
+		return res;
+	stack&amp;lt;int&amp;gt; st;
+	st.push(0);
+	for (int i = 1; i &amp;lt; n*2; i++) {
+		if (nums[i % n] &amp;lt; nums[st.top()])
+			st.push(i % n);
+		else if (nums[i % n] == nums[st.top()])
+			st.push(i % n);
+		else {
+			while (!st.empty() &amp;amp;&amp;amp; nums[i % n] &amp;gt; nums[st.top()]) {
+				res[st.top()] = nums[i % n];
+				st.pop();
+			}
+			st.push(i % n);
+		}
+	}
+	return res;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;接雨水&#34;&gt;接雨水&lt;/h2&gt;
+&lt;p&gt;给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。&lt;br&gt;
+示例 1：&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1731550643513.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]&lt;br&gt;
+输出：6&lt;br&gt;
+解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。&lt;br&gt;
+示例 2：&lt;br&gt;
+输入：height = [4,2,0,3,2,5]&lt;br&gt;
+输出：9&lt;/p&gt;
+&lt;h3 id=&#34;idea-4&#34;&gt;idea&lt;/h3&gt;
+&lt;p&gt;主要就是要找到蓝色的区域，首先应该也是要找比当前元素大于等于的元素才能围住，然后就是求两者间大小了。&lt;br&gt;
+如例子1： 1 0 2 -&amp;gt; 1 , 2 1 0 1 3 -&amp;gt; 4 .&lt;br&gt;
+又仔细看了一下，好像是下标差。但用例子2验证好像有问题。&lt;br&gt;
+或者就是先找左右两边最高的，但对于例子1又有点问题。&lt;br&gt;
+求中间凹槽，应该是要找当前柱子左右比其高的柱子。属于先简化模型 |_| ，下凹就是栈顶元素，右边柱子是比栈顶大的右边第一个元素，左边柱子就是栈顶下面一个元素。&lt;br&gt;
+从头遍历所有的列，并且要注意第一个柱子和最后一个柱子不接雨水&lt;br&gt;
+三者间的高度和宽度的乘积就是当前区域雨水，注意这样是&lt;strong&gt;横向求解&lt;/strong&gt;。&lt;br&gt;
+一些暴力求解是&lt;strong&gt;纵向求解&lt;/strong&gt;。&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1731578933954.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+按列就是：&lt;strong&gt;height=min( lHeight , rHeight ) - curHeight&lt;/strong&gt;&lt;br&gt;
+这类题目应该和贪心，动规一样，先简化模型，分析局部，不要上来就整体分析。&lt;/p&gt;
+&lt;h3 id=&#34;exp-4&#34;&gt;exp&lt;/h3&gt;
+&lt;p&gt;有暴力解法，双指针优化和单调栈三种方法。&lt;br&gt;
+双指针：为了得到两边的最高高度，使用了双指针来遍历，每到一个柱子都向两边遍历一遍，这其实是有重复计算的。我们把每一个位置的左边最高高度记录在一个数组上（maxLeft），右边最高高度记录在一个数组上（maxRight），分别记录每个位置左侧和右侧的最高柱子高度，这样就避免了重复计算。&lt;br&gt;
+就只有单调栈是按行计算。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;quot;headers.cpp&amp;quot;
+// O(n^2)
+int trapForce(vector&amp;lt;int&amp;gt;&amp;amp; heights) {
+	int sum = 0;
+	for (int i = 0; i &amp;lt; heights.size(); i++) {
+		// first and last can&#39;t collect rain
+		if (i == 0 || i == heights.size() - 1)
+			continue;
+		int rHeight = heights[i];
+		int lHeight = heights[i];
+		for (int r = i + 1; r &amp;lt; heights.size(); r++) {
+			if (heights[r] &amp;gt; rHeight) {
+				rHeight = heights[r];
+			}
+		}
+		for (int l = i - 1; l &amp;gt;= 0; l--) {
+			if (heights[l] &amp;gt; lHeight) {
+				lHeight = heights[l];
+			}
+		}
+		int hig = min(lHeight, rHeight) - heights[i];
+		if (hig &amp;gt; 0)
+			sum += hig;
+	}
+	return sum;
+}
+
+// 双指针+预计算
+int trapPerdict(vector&amp;lt;int&amp;gt;&amp;amp; heights) {
+	if (heights.size() &amp;lt;= 2)
+		return 0;
+	int size = heights.size();
+	vector&amp;lt;int&amp;gt; maxLeft(heights.size(), 0);
+	vector&amp;lt;int&amp;gt; maxRight(heights.size(), 0);
+	// record each column maxLeft
+	maxLeft[0] = heights[0];
+	for (int i = 1; i &amp;lt; size; i++) {
+		maxLeft[i] = max(heights[i], maxLeft[i - 1]);
+	}
+	maxRight[size - 1] = heights[size - 1];
+	for (int i = size - 2; i &amp;gt;= 0; i--) {
+		maxRight[i] = max(heights[i], maxRight[i + 1]);
+	}
+	// calculate sum
+	int sum = 0;
+	for (int i = 0; i &amp;lt; size; i++) {
+		int curHig=min(maxLeft[i],maxRight[i])-heights[i];
+		if (curHig &amp;gt; 0)
+			sum += curHig;
+	}
+	return sum;
+}
+// 单调栈 O(n)
+int trapStack(vector&amp;lt;int&amp;gt;&amp;amp; heights) {
+	if (heights.size() &amp;lt;= 2)
+		return 0;
+	stack&amp;lt;int&amp;gt; st;
+	st.push(0);
+	int sum = 0;
+	for (int i = 1; i &amp;lt; heights.size(); i++) {
+		if (heights[i] &amp;lt; heights[st.top()])
+			st.push(i);
+		else if (heights[i] == heights[st.top()]) {
+			st.pop();  // remove Duplicates .If not,hig=0 
+			st.push(i);
+		}
+		else {
+			while (!st.empty() &amp;amp;&amp;amp; heights[i] &amp;gt; heights[st.top()]) {
+				int mid = st.top();
+				st.top();
+				if (!st.empty()) {
+					int hig = min(heights[st.top()], heights[i]) - heights[mid];
+					int wid = i - st.top() - 1;
+					sum += hig * mid;
+				}
+			}
+			st.push(i);
+		}
+	}
+	return sum;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id=&#34;柱状图中最大矩形&#34;&gt;柱状图中最大矩形&lt;/h2&gt;
+&lt;p&gt;给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。&lt;br&gt;
+求在该柱状图中，能够勾勒出来的矩形的最大面积。&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1731591497880.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;idea-5&#34;&gt;idea&lt;/h3&gt;
+&lt;p&gt;感觉和上题非常的像啊，唉，思路还是有点没打开。&lt;br&gt;
+上面那个是对外，求左右两边比其大的柱子，形成凹槽。&lt;br&gt;
+而这个是对内，应该求左右两边比其小的柱子，其作基准，看能不能往两边扩展。&lt;br&gt;
+单调栈就应该是递减的顺序，遍历元素与栈顶元素的关系比较也相反。&lt;br&gt;
+但还有些细节：&lt;br&gt;
+&lt;strong&gt;首尾加 0&lt;/strong&gt;&lt;br&gt;
+是为了特殊情况（递增或递减数组）也可以求出结果。&lt;br&gt;
+尾0是递增数组为了有一个元素可以小于栈顶元素，可以进入收获结果的块中。&lt;br&gt;
+头0是递减数组为了为了避免空栈取值，直接跳过了计算结果的逻辑。&lt;/p&gt;
+&lt;h3 id=&#34;exp-5&#34;&gt;exp&lt;/h3&gt;
+&lt;p&gt;也是三种解法。&lt;br&gt;
+对于双指针：难就难在本题要记录记录每个柱子 左边第一个小于该柱子的下标，而不是左边第一个小于该柱子的高度。&lt;br&gt;
+对于单调栈，上面说了。&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;quot;headers.cpp&amp;quot;
+
+int largeestRectangleAreaForce(vector&amp;lt;int&amp;gt;&amp;amp; heights) {
+	int sum = 0;
+	for (int i = 0; i &amp;lt; heights.size(); i++) {
+		int left = i;
+		int right = i;
+		for (; left &amp;gt;= 0; left--) {
+			if (heights[left] &amp;lt; heights[i])
+				break;
+		}
+		for (; right &amp;lt; heights.size(); right++) {
+			if (heights[right] &amp;lt; heights[i])
+				break;
+		}
+		int wid = right - left - 1;
+		int hig = heights[i];
+		sum = max(sum, wid * hig);
+	}
+	return sum;
+}
+// O(n)
+int largestRectangleAreaPred(vector&amp;lt;int&amp;gt;&amp;amp; heights) {
+	int size = heights.size();
+	vector&amp;lt;int&amp;gt; minLeftIndex(size);
+	vector&amp;lt;int&amp;gt; minRightIndex(size);
+	// record the left index which is less than curColumn
+	minLeftIndex[0] = -1;    // avoid endless loop
+	for (int i = 1; i &amp;lt; size; i++) {
+		int t = i - 1;
+		// 利用了动态规划的思想,复用了之前计算的结果
+		while (t &amp;gt;= 0 &amp;amp;&amp;amp; heights[t] &amp;gt;= heights[i])
+			t = minLeftIndex[t];   // 不断向左寻找的过程
+		minLeftIndex[i] = t;
+	}
+	// 右边第一个小于该柱子的下标
+	minRightIndex[size - 1] = size; 
+	for (int i = size - 2; i &amp;gt;= 0; i--) {
+		int t = i + 1;
+		while (t &amp;lt; size &amp;amp;&amp;amp; heights[t] &amp;gt;= heights[i])
+			t = minRightIndex[t];
+		minRightIndex[i] = t;
+	}
+	// calculate sum
+	int res = 0;
+	for (int i = 0; i &amp;lt; size; i++) {
+		int sum = heights[i] * (minRightIndex[i] - minLeftIndex[i] - 1);
+		res = max(sum, res);
+	}
+	return res;
+}
+// 
+int largestRectangleAreaStack(vector&amp;lt;int&amp;gt;&amp;amp; heights) {
+	int res = 0;
+	stack&amp;lt;int&amp;gt; st;
+	// specially deal with heights
+	heights.insert(heights.begin(), 0);  // add 0 at head
+	heights.push_back(0);                // add 0 at end
+	st.push(0);
+	for (int i = 1; i &amp;lt; heights.size(); i++) {
+		if (heights[i] &amp;gt; heights[st.top()])
+			st.push(i);
+		else if (heights[i] == heights[st.top()]) {
+			st.pop();
+			st.push(i);
+		}
+		else {
+			while (!st.empty() &amp;amp;&amp;amp; heights[i] &amp;lt; heights[st.top()]) {
+				int mid = st.top();
+				st.pop();
+				if (!st.empty()) {
+					int left = st.top();
+					int right = i;
+					int wid = right - left - 1;
+					int hig = heights[mid];
+					res = max(res, wid * hig);
+				}
+			}
+			st.push(i);
+		}
+	}
+	return res;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;单调栈的解法也是比较好的一种算法，主要是用于要找一个元素的左右边的一个大于或小于其的元素。然后单调栈一般存下标的情况比较多，两种顺序。还有就是对问题的分析，可以借鉴贪心和动规，先局部再整体。还有一些技巧就之后遇到了再记录吧。&lt;/p&gt;
+&lt;p&gt;完结，撒花！！！😁😁😁&lt;/p&gt;
+">单调栈</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/2024-11-secondweek/"" data-c="
+          &lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;金工实习终于是结束了，后面也是没学到什么，听了星盟 tok✌️的讲解，认识到大佬们还是tql&lt;/p&gt;
+&lt;h1 id=&#34;have-done&#34;&gt;Have done&lt;/h1&gt;
+&lt;p&gt;金工实习，0.0&lt;br&gt;
+bomb lab搞到第四个了&lt;/p&gt;
+&lt;h1 id=&#34;to-do&#34;&gt;To do&lt;/h1&gt;
+&lt;p&gt;csapp学习，bomb和data两个lab整理出来。&lt;/p&gt;
+&lt;p&gt;代码随想录（主）&lt;br&gt;
+贪心，动态规划。。。都要开一点。&lt;/p&gt;
+&lt;p&gt;掘金题目和课程（看看）&lt;/p&gt;
+">2024-11-secondWeek</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/2024-11-firstweek/"" data-c="
+          &lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;开始金工实习了，中午的时间就几乎没有了，下午回来也是很疲累，所以这周学的很少。&lt;br&gt;
+主要就是掘金刷题了&lt;/p&gt;
+&lt;h1 id=&#34;have-done&#34;&gt;Have done&lt;/h1&gt;
+&lt;p&gt;感觉没有做完什么，有点废 0.0&lt;/p&gt;
+&lt;h1 id=&#34;to-do&#34;&gt;To do&lt;/h1&gt;
+&lt;p&gt;csapp学习&lt;br&gt;
+代码随想录&lt;br&gt;
+掘金题目&lt;/p&gt;
+">2024-11-firstWeek</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/hui-su-suan-fa-san/"" data-c="
+          &lt;h1 id=&#34;子集&#34;&gt;子集&lt;/h1&gt;
+&lt;p&gt;给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。&lt;br&gt;
+说明：解集不能包含重复的子集。&lt;br&gt;
+示例: 输入: nums = [1,2,3] 输出: [ [3],   [1],   [2],   [1,2,3],   [1,3],   [2,3],   [1,2],   [] ]&lt;/p&gt;
+&lt;h2 id=&#34;idea&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;回溯算法的另一种可解决问题，应该也可以抽象为树形结构，但是结果收集不是在叶子节点了，应该是每个节点。子集是收集树形结构中树的所有节点的结果&lt;/p&gt;
+&lt;h1 id=&#34;子集ii&#34;&gt;子集II&lt;/h1&gt;
+&lt;p&gt;给定一个可能包含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。&lt;br&gt;
+说明：解集不能包含重复的子集。&lt;br&gt;
+示例:&lt;br&gt;
+输入: [1,2,2]&lt;br&gt;
+输出: [ [2], [1], [1,2,2], [2,2], [1,2], [] ]&lt;/p&gt;
+&lt;h2 id=&#34;idea-2&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;也就是上面子集问题加上同一树层去重。&lt;/p&gt;
+&lt;h2 id=&#34;exp&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;algorithm&amp;gt;
+
+vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res;
+vector&amp;lt;int&amp;gt; path;
+void backtracking(vector&amp;lt;int&amp;gt;&amp;amp; nums, int startIndex) {
+	res.push_back(path); // 收集子集，要放在终止添加的上面，否则会漏掉自己
+	if (startIndex &amp;gt;= nums.size()) {
+		return;
+	}
+	for (int i = startIndex; i &amp;lt; nums.size(); i++) {
+		path.push_back(nums[i]);
+		backtracking(nums, i + 1);
+		path.pop_back();
+	}
+}
+
+void backtracking2(vector&amp;lt;int&amp;gt;&amp;amp; nums, int startIndex, vector&amp;lt;bool&amp;gt;&amp;amp; used) {
+	res.push_back(path);
+	for (int i = startIndex; i &amp;lt; nums.size(); i++) {
+		if (i &amp;gt; 0 &amp;amp;&amp;amp; nums[i] == nums[i - 1] &amp;amp;&amp;amp; used[i - 1] == false) {
+			continue;
+		}
+		path.push_back(nums[i]);
+		used[i] = true;
+		backtracking2(nums, i + 1, used);
+		used[i] = false;
+		path.pop_back();
+	}
+}
+
+// set 去重
+//unordered_set&amp;lt;int&amp;gt; uset;
+//for (int i = startIndex; i &amp;lt; nums.size(); i++) {
+//	if (uset.find(nums[i]) != uset.end()) {
+//		continue;
+//	}
+
+vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; subsetsWithDup(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+	res.clear();
+	path.clear();
+	vector&amp;lt;bool&amp;gt; used(nums.size(), false);
+	sort(nums.begin(), nums.end()); // 去重需要排序
+	backtracking2(nums, 0, used);
+	return res;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;递增子序列&#34;&gt;递增子序列&lt;/h1&gt;
+&lt;p&gt;给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。&lt;br&gt;
+示例:&lt;br&gt;
+输入: [4, 6, 7, 7]&lt;br&gt;
+输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]&lt;br&gt;
+说明:&lt;br&gt;
+给定数组的长度不会超过15。&lt;br&gt;
+数组中的整数范围是 [-100,100]。&lt;br&gt;
+给定数组中可能包含重复数字，相等的数字应该被视为递增的一种情况。&lt;/p&gt;
+&lt;h2 id=&#34;idea-3&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;想到可以结合 &lt;strong&gt;queue队列&lt;/strong&gt;，先进先出嘛。&lt;br&gt;
+要递增集合首先要排序，但这里不对，排序后的数组就是一个递增序列了，也改变了元素的位置，所以不能排序。&lt;br&gt;
+然后就是回溯的参数，结束条件，单层逻辑。&lt;br&gt;
+也是取每个节点作结果，只是要经过筛选。&lt;br&gt;
+uset是帮数每一层进行去重，进入下一层就重新赋值uset，故单层处理中，uset不用回溯。&lt;/p&gt;
+&lt;h2 id=&#34;exp-2&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;vector&amp;gt;
+using namespace std;
+#include &amp;lt;unordered_set&amp;gt;
+
+vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; res;
+vector&amp;lt;int&amp;gt; path;
+
+void backtracking(vector&amp;lt;int&amp;gt;&amp;amp; nums, int startIndex) {
+	if (path.size() &amp;gt; 1) {
+		res.push_back(path);
+	}
+	//
+	unordered_set&amp;lt;int&amp;gt; uset;    // use uset to 进行本层去重
+	for (int i = startIndex; i &amp;lt; nums.size(); i++) {
+		if ((!path.empty() &amp;amp;&amp;amp; nums[i] &amp;lt; path.back())
+			|| uset.find(nums[i]) != uset.end()) {
+			// path is empty,nums[i] to be choicen &amp;lt; path[right],nums[i] have been used
+			continue;
+		}
+		uset.insert(nums[i]);   // record
+		// 是记录本层元素是否重复使用，新的一层uset都会重新定义（清空），所以uset只负责本层
+		path.push_back(nums[i]);
+		backtracking(nums, i + 1);
+		path.pop_back();
+	}
+}
+
+// update
+// use Array to as usedArray
+int used[201] = { 0 }; // 这里使用数组来进行去重操作，题目说数值范围[-100, 100]
+for (int i = startIndex; i &amp;lt; nums.size(); i++) {
+	if ((!path.empty() &amp;amp;&amp;amp; nums[i] &amp;lt; path.back())
+		|| used[nums[i] + 100] == 1) {
+		continue;
+	}
+	used[nums[i] + 100] = 1; // 记录这个元素在本层用过了，本层后面不能再用了
+	path.push_back(nums[i]);
+	backtracking(nums, i + 1);
+	path.pop_back();
+}
+
+vector&amp;lt;vector&amp;lt;int&amp;gt;&amp;gt; findSubsequences(vector&amp;lt;int&amp;gt;&amp;amp; nums) {
+	res.clear();
+	path.clear();
+	backtracking(nums, 0);
+	return res;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;review&#34;&gt;Review&lt;/h1&gt;
+&lt;h2 id=&#34;组合&#34;&gt;组合&lt;/h2&gt;
+&lt;p&gt;组合需不需要startIndex，看是什么进行组合：&lt;br&gt;
+是一个集合去求组合，就需要；多个集合求组合，各个集合间互不影响，就不需要。&lt;br&gt;
+还有就是对去重的理解。&lt;/p&gt;
+&lt;h2 id=&#34;分割&#34;&gt;分割&lt;/h2&gt;
+&lt;p&gt;类似组合问题，但是需要注意如何模拟切割线，如何终止，如何截取子串&lt;br&gt;
+还有切割过的地方不能重复切割所以递归函数需要传入i + 1&lt;/p&gt;
+&lt;h2 id=&#34;子集-2&#34;&gt;子集&lt;/h2&gt;
+&lt;p&gt;在树形结构中子集问题是要收集所有节点的结果，而组合问题是收集叶子节点的结果&lt;/p&gt;
+">回溯算法（三）</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/marcode-suan-fa-ti-er/"" data-c="
+          &lt;h1 id=&#34;点菜问题&#34;&gt;点菜问题&lt;/h1&gt;
+&lt;p&gt;已知该餐馆有 n 道菜，第 i 道菜的售价为 wi 。小C准备点一些价格相同的菜，但小C不会点单价超过&lt;br&gt;
+m 的菜。小C想知道，自己最多可以点多少道菜？&lt;br&gt;
+输入：m = 6, w = [2, 3, 3, 6, 6, 6, 9, 9, 23]&lt;br&gt;
+输出：3&lt;/p&gt;
+&lt;h2 id=&#34;idea&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;首先要是有重复的，不能超过 m ，可以使用字典，找重复最大且价格不超过 m 的&lt;/p&gt;
+&lt;h2 id=&#34;exp&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;def solution(m: int, w: list) -&amp;gt; int:
+    # write code here
+    diet={}
+    n=len(w)
+    # first filter not food
+    filtered_prices=[price for price in w if price&amp;lt;=m]
+    for food in filtered_prices:
+        if food in diet:
+            diet[food]+=1
+        else:
+            diet[food]=1
+    # 先是最大，然后不超过()
+    max_count=0
+    for count in diet.values():
+        if count&amp;gt;max_count:
+            max_count=count
+    return max_count
+
+if __name__ == &#39;__main__&#39;:
+    print(solution(6, [2, 3, 3, 6, 6, 6, 9, 9, 23]) == 3)
+    print(solution(4, [1, 2, 4, 4, 4]) == 3)
+    print(solution(5, [5, 5, 5, 5, 6, 7, 8]) == 4)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;后面还是用 C 来写了&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;int hours = stoi(time.substr(0, 2));&lt;br&gt;
+&#39;18:20&#39; -&amp;gt; &#39;18&#39; -&amp;gt; 18&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;h1 id=&#34;计算器&#34;&gt;计算器&lt;/h1&gt;
+&lt;p&gt;实现一个基本的计算器来计算一个简单的字符串表达式的值&lt;br&gt;
+如：3+4*5/(3+2)&lt;/p&gt;
+&lt;h2 id=&#34;idea-2&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;首先肯定要按法则，先找括号，然后乘除，最后加减。&lt;br&gt;
+看着简单，也不好实现 0.0&lt;br&gt;
+按，没想到可以使用&lt;strong&gt;栈&lt;/strong&gt;解决。&lt;br&gt;
+然后两个栈，一个存储运算数字，一个存储运算符号。&lt;/p&gt;
+&lt;h2 id=&#34;exp-2&#34;&gt;exp&lt;/h2&gt;
+&lt;p&gt;注意这只能处理 0-9 的运算&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;string&amp;gt;
+#include &amp;lt;stack&amp;gt;
+
+// 返回运算符的优先级
+int precedence(char op) {
+    if (op == &#39;+&#39; || op == &#39;-&#39;)
+        return 1;
+    if (op == &#39;*&#39; || op == &#39;/&#39;)
+        return 2;
+    return 0;
+}
+
+// 根据运算符执行计算，并返回结果
+int applyOp(int a, int b, char op) {
+    switch (op) {
+        case &#39;+&#39;: return a + b;
+        case &#39;-&#39;: return a - b;
+        case &#39;*&#39;: return a * b;
+        case &#39;/&#39;: return a / b;  // 假设不会有除零情况
+    }
+    return 0;
+}
+
+// 主函数：计算中缀表达式的值
+int solution(std::string expression) {
+    std::stack&amp;lt;int&amp;gt; operandStack;    // 存储操作数的栈
+    std::stack&amp;lt;char&amp;gt; operatorStack;  // 存储运算符的栈
+    
+    // 遍历表达式中的每一个字符
+    for (int i = 0; i &amp;lt; expression.length(); i++) {
+        if (isdigit(expression[i])) {
+            // 如果是数字字符，将其转换为整数并压入操作数栈
+            operandStack.push(expression[i] - &#39;0&#39;);
+        } else if (expression[i] == &#39;(&#39;) {
+            // 左括号直接压入运算符栈
+            operatorStack.push(expression[i]);
+        } else if (expression[i] == &#39;)&#39;) {
+            // 右括号时，处理括号内的运算，直到遇到左括号
+            while (!operatorStack.empty() &amp;amp;&amp;amp; operatorStack.top() != &#39;(&#39;) {
+                char op = operatorStack.top(); // 获取运算符
+                operatorStack.pop();           // 弹出运算符
+                int b = operandStack.top();
+                operandStack.pop();
+                int a = operandStack.top();
+                operandStack.pop();
+                // 计算结果并压入操作数栈
+                operandStack.push(applyOp(a, b, op));
+            }
+            operatorStack.pop(); // 弹出左括号 &#39;(&#39;
+        } else {
+            // 处理 +, -, *, / 运算符
+            while (!operatorStack.empty() &amp;amp;&amp;amp; precedence(operatorStack.top()) &amp;gt;= precedence(expression[i])) {
+                // 弹出栈顶运算符，并进行计算
+                char op = operatorStack.top();
+                operatorStack.pop();
+                int b = operandStack.top();
+                operandStack.pop();
+                int a = operandStack.top();
+                operandStack.pop();
+                // 将计算结果压入操作数栈
+                operandStack.push(applyOp(a, b, op));
+            }
+            // 当前运算符入栈
+            operatorStack.push(expression[i]);
+        }
+    }
+    
+    // 处理剩余的运算符
+    while (!operatorStack.empty()) {
+        char op = operatorStack.top();
+        operatorStack.pop();
+        int b = operandStack.top();
+        operandStack.pop();
+        int a = operandStack.top();
+        operandStack.pop();
+        // 计算结果并压入操作数栈
+        operandStack.push(applyOp(a, b, op));
+    }
+    
+    // 栈顶的元素即为最终结果
+    return operandStack.top();
+}
+
+int main() {
+    // 测试用例
+    std::cout &amp;lt;&amp;lt; (solution(&amp;quot;1+1&amp;quot;) == 2) &amp;lt;&amp;lt; std::endl;             // 输出: 1 (表示 true)
+    std::cout &amp;lt;&amp;lt; (solution(&amp;quot;3+4*5/(3+2)&amp;quot;) == 7) &amp;lt;&amp;lt; std::endl;     // 输出: 1 (表示 true)
+    std::cout &amp;lt;&amp;lt; (solution(&amp;quot;4+2*5-2/1&amp;quot;) == 12) &amp;lt;&amp;lt; std::endl;      // 输出: 1 (表示 true)
+    std::cout &amp;lt;&amp;lt; (solution(&amp;quot;(1+(4+5+2)-3)+(6+8)&amp;quot;) == 23) &amp;lt;&amp;lt; std::endl; // 输出: 1 (表示 true)
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;数字翻译&#34;&gt;数字翻译&lt;/h1&gt;
+&lt;p&gt;给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。&lt;br&gt;
+12258 有 5 种不同的翻译，分别是 &amp;quot;bccfi&amp;quot;, &amp;quot;bwfi&amp;quot;, &amp;quot;bczi&amp;quot;, &amp;quot;mcfi&amp;quot; 和 &amp;quot;mzi&amp;quot;&lt;/p&gt;
+&lt;h2 id=&#34;idea-3&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;一个数字可能有多种翻译方法。有多少种翻译方法，也就是一个动态规划问题。&lt;br&gt;
+从右到左进行翻译&lt;/p&gt;
+&lt;h2 id=&#34;exp-3&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+using namespace std;
+
+#include &amp;lt;string&amp;gt;
+#include &amp;lt;vector&amp;gt;
+int translateNumA(int num) {
+	// change int into str to deal with
+	std::string str = std::to_string(num);
+	int n = str.size();
+	// dp Array express 字符串从i位置到末尾的翻译方式数量
+	vector&amp;lt;int&amp;gt; dp(n + 1, 0);
+	dp[n] = 1;  // empty str
+	dp[n - 1] = 1;  // single character
+
+	// 倒数第二位开始遍历
+	for (int i = n - 2; i &amp;gt;= 0; i--) {
+		dp[i] = dp[i + 1];   // 翻译当前数字
+		int twoDigit = stoi(str.substr(i, 2));
+		if (twoDigit &amp;gt;= 10 &amp;amp;&amp;amp; twoDigit &amp;lt;= 25) {
+			dp[i] += dp[i + 2];  // 翻译两位数的方式数,接下来的翻译就从位置 i+2 开始
+		}
+	}
+	return dp[0];
+}
+
+int translateNum(int num) {
+	string str = to_string(num);
+	int n = str.size();
+	int dp1 = 1;
+	int dp2 = 1;
+	int dp = 1;
+	for (int i = n - 2; i &amp;gt;= 0; i--) {
+		dp = dp1;
+		int twoDigit = stoi(str.substr(i, 2));
+		if (twoDigit &amp;gt;= 10 &amp;amp;&amp;amp; twoDigit &amp;lt;= 25) {
+			dp += dp2;
+		}
+		// update dp1 dp2
+		dp2 = dp1;
+		dp1 = dp;
+	}
+	return dp;
+}
+int main() {
+
+	return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;猫的鱼干大分配&#34;&gt;猫的鱼干大分配&lt;/h1&gt;
+&lt;p&gt;在猫星球上，小R负责给一行排队的猫分发鱼干。每只猫有一个等级，等级越高的猫应该得到更多的鱼干。规则如下：&lt;br&gt;
+每只猫至少得到一斤鱼干。&lt;br&gt;
+如果一只猫的等级高于它相邻的猫，它就应该得到比相邻的猫更多的鱼干。&lt;br&gt;
+小R想知道，为了公平地满足所有猫的等级差异，他至少需要准备多少斤鱼干。&lt;/p&gt;
+&lt;h2 id=&#34;idea-4&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;也就是一个模拟执行的例子吧，初始都是1，然后比较（两个方向，从左到右和从右到左）&lt;br&gt;
+结合一次遍历是不行的，&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1731042168880.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;exp-4&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;int solution(int n, std::vector&amp;lt;int&amp;gt; cats_levels) {
+  // 初始化鱼干分配数组，每只猫至少分配1斤鱼干
+  std::vector&amp;lt;int&amp;gt; fish_distribution(n, 1);
+
+  // 从左到右遍历，确保每只猫的鱼干数量满足条件
+  for (int i = 1; i &amp;lt; n; ++i) {
+    if (cats_levels[i] &amp;gt; cats_levels[i - 1]) {
+      // 如果当前猫的等级比前一只猫高，增加鱼干数量
+      fish_distribution[i] = fish_distribution[i - 1] + 1;
+    }
+  }
+
+  // 从右到左遍历，确保每只猫的鱼干数量满足条件
+  for (int i = n - 2; i &amp;gt;= 0; --i) {
+    if (cats_levels[i] &amp;gt; cats_levels[i + 1]) {
+      // 如果当前猫的等级比后一只猫高，增加鱼干数量
+      fish_distribution[i] = std::max(fish_distribution[i], fish_distribution[i + 1] + 1);
+    }
+  }
+  
+  // for(int i=1;i&amp;lt;n;++i){
+  //   if (cats_levels[i]&amp;gt;cats_levels[i-1]){
+  //     fish_distribution[i]=fish_distribution[i-1]+1;
+  //   }
+  //   else if(cats_levels[i]&amp;lt;cats_levels[i-1]){
+  //     fish_distribution[i-1]+=1;
+  //   }
+  // }
+
+  // 计算总的鱼干数量
+  int total_fish = 0;
+  for (int fish : fish_distribution) {
+    total_fish += fish;
+  }
+
+  return total_fish;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;红包金额分割&#34;&gt;红包金额分割&lt;/h1&gt;
+&lt;p&gt;在一排红包之间“切”两刀，将这一列红包分成三组，并且需要保证第一组的奖金和与最后一组的奖金和一致（允许任意一组的红包集合为空）。最终第一组红包奖金之和就是小王能够拿到的奖金数。&lt;br&gt;
+能帮小王计算下他能拿到的最大奖金么？（如果没有红包可获得，则小王能拿到的最大奖金为 0）&lt;br&gt;
+举例解释：桌子上放了红包 1, 3, 4, 6, 7, 14。小王在“6,7”之间、“7,14” 之间各切一刀，将红包分成 3 组 [1, 3, 4, 6] [7] [14]，其中第一组奖金之和与第三组奖金之和都为 14，所以小明可以拿到 14 元。&lt;br&gt;
+空格分割的红包金额数，共有 N 个&lt;br&gt;
+输出小王可以拿到的最大奖金数&lt;/p&gt;
+&lt;h2 id=&#34;idea-5&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;应该也是一个动态规划，dp数组应该有两个，一个从左到右，一个从右到左记录累加和。&lt;br&gt;
+查了一下，也可以前缀和和哈希表加速查找。&lt;/p&gt;
+&lt;h2 id=&#34;exp-5&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;int priceDivide(std::vector&amp;lt;int&amp;gt; redpacks) {
+    int n = redpacks.size();
+    if (n &amp;lt; 3) return 0;
+
+    // 计算前缀和数组和后缀和数组
+    std::vector&amp;lt;int&amp;gt; preSum(n, 0), postSum(n, 0);
+    preSum[0] = redpacks[0];
+    postSum[n - 1] = redpacks[n - 1];
+
+    // 前缀和计算
+    for (int i = 1; i &amp;lt; n; ++i) {
+        preSum[i] = preSum[i - 1] + redpacks[i];
+    }
+
+    // 后缀和计算
+    for (int i = n - 2; i &amp;gt;= 0; --i) {
+        postSum[i] = postSum[i + 1] + redpacks[i];
+    }
+
+    int maxCount = 0;
+    // 遍历可能的分割点，找到符合条件的最大值
+    for (int j = 0; j &amp;lt; n - 1; ++j) {
+        // 检查是否存在 preSum[j] 在后缀和数组中
+        for (int k = j + 2; k &amp;lt; n; ++k) {  // k starts from j + 2 to ensure we have three segments
+            if (preSum[j] == postSum[k]) {
+                maxCount = std::max(preSum[j], maxCount);
+            }
+        }
+    }
+
+    return maxCount;
+}
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;阿d的最佳飞行路线探索&#34;&gt;阿D的最佳飞行路线探索&lt;/h1&gt;
+&lt;p&gt;问题描述&lt;br&gt;
+小C和他的领导小F计划一次飞行，但由于严格的航空管制，他们的飞机仅能按特定的路线飞行：飞机只能飞往当前机场的相邻机场或相同航空公司管理的机场。为了减少起飞次数，小C需要制定最优的飞行路线。机场由一个数组airports标识，其中：&lt;br&gt;
+数组每个元素代表一个独特的机场，元素的值代表不同的航空公司。&lt;br&gt;
+airports[0]为起点，airports[airports.length - 1]为终点。&lt;br&gt;
+假设小C当前在机场i，那么i - 1和i + 1（如果存在）代表邻近机场，飞机可以直接前往。&lt;br&gt;
+如果在机场i，且存在airports[i] == airports[j]，则机场i和机场j同属一家航空公司，可直接飞往。&lt;br&gt;
+求最小起飞次数。&lt;/p&gt;
+&lt;h2 id=&#34;idea-6&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;首先肯定是找到相同的机场，然后看怎么到达。&lt;br&gt;
+也就是 BFS 广度搜索，寻找最短路径。&lt;br&gt;
+然后选择合适的数据结构，这里可以用哈希表（unordered_map），队列&lt;/p&gt;
+&lt;h2 id=&#34;exp-6&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;#include &amp;lt;iostream&amp;gt;
+#include &amp;lt;vector&amp;gt;
+#include &amp;lt;queue&amp;gt;
+#include &amp;lt;unordered_map&amp;gt;
+#include &amp;lt;unordered_set&amp;gt;
+
+using namespace std;
+
+int minTakeoffs(vector&amp;lt;int&amp;gt;&amp;amp; airports) {
+    int n = airports.size();
+    
+    // 处理特殊情况：如果起点和终点是同一个机场
+    if (n == 1 || airports[0] == airports[n - 1]) {
+        return 0;
+    }
+    
+    // 创建一个字典，记录每个航空公司的机场索引
+    unordered_map&amp;lt;int, vector&amp;lt;int&amp;gt;&amp;gt; airline_map;
+    for (int i = 0; i &amp;lt; n; ++i) {
+        airline_map[airports[i]].push_back(i);
+    }
+    
+    // BFS初始化
+    queue&amp;lt;pair&amp;lt;int, int&amp;gt;&amp;gt; q;  // pair&amp;lt;当前机场索引, 起飞次数&amp;gt;
+    q.push({0, 0});  // 从起点机场出发，起飞次数为0
+    vector&amp;lt;bool&amp;gt; visited(n, false);
+    visited[0] = true;
+
+    while (!q.empty()) {
+        auto [current_index, takeoffs] = q.front();
+        q.pop();
+
+        // 检查是否到达终点机场
+        if (current_index == n - 1) {
+            return takeoffs;
+        }
+        
+        // 访问相邻机场
+        for (int neighbor : {current_index - 1, current_index + 1}) {
+            if (neighbor &amp;gt;= 0 &amp;amp;&amp;amp; neighbor &amp;lt; n &amp;amp;&amp;amp; !visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push({neighbor, takeoffs + 1});
+            }
+        }
+
+        // 访问同一家航空公司的机场
+        int current_airline = airports[current_index];
+        for (int same_airport : airline_map[current_airline]) {
+            if (!visited[same_airport]) {
+                visited[same_airport] = true;
+                q.push({same_airport, takeoffs + 1});
+            }
+        }
+
+        // 清空该航空公司机场的列表，避免后续重复访问
+        airline_map[current_airline].clear();
+    }
+
+    return -1;  // 如果无法到达终点，返回-1（此情况不会发生）
+}
+
+int main() {
+    vector&amp;lt;int&amp;gt; airports = {1, 2, 1, 2, 3};
+    int result = minTakeoffs(airports);
+    cout &amp;lt;&amp;lt; &amp;quot;最小起飞次数: &amp;quot; &amp;lt;&amp;lt; result &amp;lt;&amp;lt; endl;  // 输出：3
+    return 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+">MarCode算法题（二）</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/2024-10-fina-weeklyDiary/"" data-c="
+          &lt;h1 id=&#34;summary&#34;&gt;Summary&lt;/h1&gt;
+&lt;p&gt;总体比上周过的好一些。周末打了两个比赛，平时也有学。&lt;/p&gt;
+&lt;h1 id=&#34;have-done&#34;&gt;Have done&lt;/h1&gt;
+&lt;p&gt;强网杯和软件测试大赛的鸿蒙应用赛的努力。&lt;br&gt;
+听了两次字节大佬的经验分享，也是有所收获。&lt;br&gt;
+CSAPP这两周没看，在做lab，发现也还是容易忘，之后也会登上blog。&lt;br&gt;
+掘金的AI刷题继续开始（有一些错误的题目）也会登。&lt;/p&gt;
+&lt;h1 id=&#34;to-do&#34;&gt;To do&lt;/h1&gt;
+&lt;p&gt;下周，好好搞电工实习 0.0&lt;br&gt;
+把 Data Lab 和 Bomb Lab （尽量）搞完。&lt;br&gt;
+掘金的课程学习（看能不能肝到第五节）。&lt;br&gt;
+然后就是每天三四到算法题。&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1730734768719.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+">十月最后一周</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/marscode-suan-fa-ti/"" data-c="
+          &lt;h1 id=&#34;instruction&#34;&gt;instruction&lt;/h1&gt;
+&lt;p&gt;嗯，目前定的是两天（六道题左右）一发，然后可能一周一总结，对题型的归纳和概况啊hh。&lt;br&gt;
+敬请期待！！！&lt;/p&gt;
+&lt;h1 id=&#34;雇主招聘问题&#34;&gt;雇主招聘问题&lt;/h1&gt;
+&lt;p&gt;问题描述&lt;br&gt;
+小U作为一位雇主，想要招聘一位工人。现有 n 个人前来应聘，每个人都写下了他们期望的薪资。小U打算选择期望薪资最低的人，但为了避免纠纷，他只会选择在没有其他人提出相同期望薪资的情况下期望薪资最低的人。如果没有符合条件的人，他将不录用任何人。&lt;br&gt;
+你的任务是帮助小U找到合适的最低薪资。如果没有合适的人，输出 -1。&lt;/p&gt;
+&lt;h2 id=&#34;idea&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;dict，看排序后第一个薪资工人数是否大于1&lt;/p&gt;
+&lt;h2 id=&#34;exp&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;def solution(n:int,salaries:list)-&amp;gt;int:
+   # statistics salaries
+   salary_count={}
+   for salary in salaries:
+      if salary in salary_coun:
+         salary_count[salary]+=1
+      else:
+         salary_count[salary]=1
+
+    # satrt to sort
+    sorted_salaries=sorted(salaries)
+
+    # search
+    for salary in sorted_salaries:
+       if salary_count[salary]==1:
+          return salary
+
+    return -1
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;比赛赢家&#34;&gt;比赛赢家&lt;/h1&gt;
+&lt;p&gt;每回合游戏都在所有元素互不相同的数组 arr 的前两个元素 arr[0] 和 arr[1] 之间进行。较大的整数将会取得这一回合的胜利并保留在位置 0，而较小的整数则会被移至数组的末尾。比赛继续，直到某个整数连续赢得 k 次，这个整数即为比赛的赢家。&lt;br&gt;
+给定一个整数数组 arr 和一个整数 k，请你返回赢得比赛的整数。题目数据保证游戏中一定存在赢家。&lt;/p&gt;
+&lt;h2 id=&#34;exp-2&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;def solution(arr: list, k: int) -&amp;gt; int:
+    # 初始化当前赢得比赛的整数和连续赢得的次数
+    current_winner = arr[0]
+    win_count = 0
+    
+    # 模拟比赛
+    while win_count &amp;lt; k:
+        # 比较前两个元素
+        if arr[0] &amp;gt; arr[1]:
+            # arr[0] 赢得比赛
+            if arr[0] == current_winner:
+                win_count += 1
+            else:
+                current_winner = arr[0]
+                win_count = 1
+            # 将较小的元素移到数组末尾
+            arr.append(arr.pop(1))
+        else:
+            # arr[1] 赢得比赛
+            if arr[1] == current_winner:
+                win_count += 1
+            else:
+                current_winner = arr[1]
+                win_count = 1
+            # 将较小的元素移到数组末尾
+            arr.append(arr.pop(0)) 
+    return current_winner
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;非重叠子数组的最大和&#34;&gt;非重叠子数组的最大和&lt;/h1&gt;
+&lt;p&gt;问题描述&lt;br&gt;
+小R遇到一个数组 nums，他需要从中找到两个非重叠的子数组，它们的长度分别为 firstLen 和 secondLen。这两个子数组可以相互独立，顺序没有限制，但它们不能有任何重叠。你需要帮小R找出这些子数组的最大和。&lt;/p&gt;
+&lt;h2 id=&#34;idea-2&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;那就先给数组排序，然后根据两个len来分配。对，还需要去除重复的部分，可以用集合。但是，还要求是连续的。&lt;br&gt;
+然后就要用到&lt;strong&gt;滑动窗口&lt;/strong&gt;的办法，来解决连续问题，并且可以提高效率。&lt;/p&gt;
+&lt;h2 id=&#34;exp-3&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;def solution(nums, firstLen, secondLen):
+    n = len(nums)
+    
+    # 计算前缀和
+    prefix_sum = [0] * (n + 1)
+    for i in range(n):
+        prefix_sum[i + 1] = prefix_sum[i] + nums[i]
+
+    # 函数计算在指定长度下的最大和
+    # 两种组合：frist在前和在后
+    def maxSum(length1, length2):
+        max_length1 = 0
+        max_sum = 0
+        
+        # 遍历所有可能的位置
+        for i in range(length1 + length2 - 1, n):
+            # 更新第一部分的最大值
+            # 计算 max_length1 的时候，i 之前的子数组有足够的长度容纳 length1 和 length2 两个子数组
+            if i - length2 &amp;gt;= 0:
+                # 确保在更新 max_length1 时不会越界
+                # 非重叠：保证当前计算的 length1 长度的子数组在 length2 长度的子数组之前
+                # max_length1 and 从位置 i - length1 - length2 + 1 到 i - length2 的子数组的和，这段长度为 length1，并且在当前位置之前
+                # 总之就是不重叠不越界
+                max_length1 = max(max_length1, prefix_sum[i - length2 + 1] - prefix_sum[i - length1 - length2 + 1])
+            current_sum = max_length1 + (prefix_sum[i + 1] - prefix_sum[i - length2 + 1])
+            max_sum = max(max_sum, current_sum)
+        
+        return max_sum
+
+    # 计算两种组合的最大和
+    return max(maxSum(firstLen, secondLen), maxSum(secondLen, firstLen))
+
+
+
+if __name__ == &#39;__main__&#39;:
+    print(solution(nums=[0, 6, 5, 2, 2, 5, 1, 9, 4], firstLen=1, secondLen=2) == 20)
+    print(solution(nums=[3, 8, 1, 3, 5, 2, 1, 0], firstLen=3, secondLen=2) == 21)
+    print(solution(nums=[2, 1, 4, 3, 5, 9, 5, 0, 3, 8], firstLen=4, secondLen=3) == 33)
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;队列&#34;&gt;队列&lt;/h1&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;1&#34;&gt;&lt;img src=&#34;https://Big-Halo.github.io/post-images/1730780096705.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;h2 id=&#34;idea-3&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;应该先排序，然后遍历，不对，只能删除（）&lt;br&gt;
+特别注意就是不连续的情况&lt;/p&gt;
+&lt;h2 id=&#34;exp-4&#34;&gt;exp&lt;/h2&gt;
+&lt;p&gt;不需要计算最长的连续子序列，因为只需要找到 b[i]=i+1 的最长子序列（不需要连续）&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;def solution(n: int, a: list) -&amp;gt; int:
+    # 找出所有满足条件的下标
+    valid_indices = [i for i in range(n) if a[i] == i + 1]
+
+    # 如果没有满足条件的下标，返回 -1
+    if not valid_indices:
+        return -1
+    
+    # 检查 valid_indices 是否为连续的子序列
+    is_continuous = True
+    for i in range(1, len(valid_indices)):
+        if valid_indices[i] != valid_indices[i - 1] + 1:
+            is_continuous = False
+            break
+    
+    # 如果是连续的，直接返回最少删除次数
+    if is_continuous:
+        return n - len(valid_indices)
+    
+    # 如果不连续，找到最长的连续子序列
+    max_continuous_length = 1
+    current_length = 1
+    for i in range(1, len(valid_indices)):
+        if valid_indices[i] == valid_indices[i - 1] + 1:
+            current_length += 1
+        else:
+            max_continuous_length = max(max_continuous_length, current_length)
+            current_length = 1
+
+    # 更新 max_continuous_length 以确保包含最后的连续子序列
+    max_continuous_length = max(max_continuous_length, current_length)
+
+    # 返回需要删除的最少次数
+    min_delete = n - max_continuous_length
+    return min_delete
+
+# 测试
+if __name__ == &#39;__main__&#39;:
+    print(solution(5, [1, 4, 2, 3, 5]) == 2)  # 输出 2
+    print(solution(3, [3, 3, 2]) == -1)       # 输出 -1
+    print(solution(5, [1, 2, 3, 4, 5]) == 0)  # 输出 0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;figure data-type=&#34;image&#34; tabindex=&#34;2&#34;&gt;&lt;img src=&#34;https://Big-Halo.github.io/post-images/1730821338670.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/figure&gt;
+&lt;pre&gt;&lt;code&gt;def solution(n: int, a: list) -&amp;gt; int:
+    # 目标是找到最长子序列，使得 b[i] = i + 1
+    expected = 1
+    length_of_valid_subsequence = 0
+
+    for num in a:
+        if num == expected:
+            length_of_valid_subsequence += 1
+            expected += 1
+
+    # 如果没有任何符合条件的子序列
+    if length_of_valid_subsequence == 0:
+        return -1
+    
+    # 最少需要删除的元素个数
+    min_delete = n - length_of_valid_subsequence
+    return min_delete
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;连通分量的边界着色问题&#34;&gt;连通分量的边界着色问题&lt;/h1&gt;
+&lt;p&gt;问题描述&lt;br&gt;
+小C拿到了一个大小为 m x n 的整数矩阵 grid，每个值表示网格块的颜色。同时给定三个整数 row、col 和 color。网格中的每个方块可能会与周围上下左右四个方向的方块相邻，如果相邻的方块具有相同的颜色，则它们属于同一个连通分量。&lt;br&gt;
+连通分量的边界是指该连通分量中满足以下条件之一的所有网格块：&lt;br&gt;
+在上下左右任意一个方向上与不属于同一连通分量的网格块相邻。&lt;br&gt;
+位于网格的边界（即第一行/列或最后一行/列）。&lt;br&gt;
+请你帮助小C为包含网格块 grid[row][col] 的连通分量的边界使用指定的颜色 color 进行着色，并返回最终的网格 grid。&lt;br&gt;
+测试样例&lt;br&gt;
+输入：grid = [[1, 1], [1, 2]], row = 0, col = 0, color = 3&lt;br&gt;
+输出：[[3, 3], [3, 2]]&lt;/p&gt;
+&lt;h2 id=&#34;idea-4&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;首先是对一个二维数组进行操作，先要判定连通分量把，grid[i][j]（grid[i-1][j],grid[i+1][j],grid[i][j-1],grid[i][j+1]），而且这样遍历应该是要从1开始。然后应该是要找边界，再向其的三个或两个方向遍历？（左右下，上下左，上下又，左右）&lt;/p&gt;
+&lt;p&gt;看wp，也就是抽象为一个maze题。（DFS/BFS）&lt;br&gt;
+边界要特殊处理&lt;/p&gt;
+&lt;h2 id=&#34;exp-5&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;def solution(grid: list, row: int, col: int, color: int) -&amp;gt; list:
+    rows = len(grid)
+    cols = len(grid[0])
+    org_color = grid[row][col]  # 使用起始点的颜色
+    visited = [[False] * cols for _ in range(rows)]
+
+    def isBoundary(x, y):
+        # 检查是否为连通分量的外边界
+        if x == 0 or x == rows - 1 or y == 0 or y == cols - 1:
+            return True
+        # 检查四个方向的相邻单元格是否与 org_color 不同
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+            # 如果相邻单元格不在边界内或与 org_color 不同，则是边界
+            if 0 &amp;lt;= nx &amp;lt; rows and 0 &amp;lt;= ny &amp;lt; cols and grid[nx][ny] != org_color:
+                return True
+        return False
+
+    def DFS(x, y):
+        # 深度优先搜索，确保只处理连通分量
+        if x &amp;lt; 0 or x &amp;gt;= rows or y &amp;lt; 0 or y &amp;gt;= cols or visited[x][y] or grid[x][y] != org_color:
+            return
+        visited[x][y] = True
+        # 只有在是外部边界时才染色
+        if isBoundary(x, y):
+            grid[x][y] = color
+        # 遍历相邻单元格
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            DFS(x + dx, y + dy)
+
+    DFS(row, col)
+    return grid
+
+# 测试用例
+if __name__ == &#39;__main__&#39;:
+    print(solution(grid=[[1, 1], [1, 2]], row=0, col=0, color=3) == [[3, 3], [3, 2]])
+    print(solution(grid=[[1, 2, 2], [2, 2, 2], [2, 2, 3]], row=1, col=1, color=4) == [[1, 4, 4], [4, 2, 4], [4, 4, 3]])
+    print(solution(grid=[[1, 1, 1], [1, 1, 1], [1, 1, 1]], row=1, col=1, color=5) == [[5, 5, 5], [5, 1, 5], [5, 5, 5]])
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h1 id=&#34;小m的多任务下载器挑战&#34;&gt;小M的多任务下载器挑战&lt;/h1&gt;
+&lt;p&gt;问题描述&lt;br&gt;
+小M的程序设计大作业是编写一个多任务下载器。在实现过程中，他遇到了一个问题：在一次下载过程中，总共有N个任务，每个任务会在第x秒开始，并持续y秒。小M需要知道，在同一时刻，最多有多少个任务正在同时下载，也就是计算出任务的最高并发数。&lt;br&gt;
+n 表示任务的数量。&lt;br&gt;
+array 是一个二维列表，每个元素为[x, y]，表示任务的开始时间和持续时间，其中：&lt;br&gt;
+x 表示任务的开始时间；&lt;br&gt;
+y 表示任务的持续时间。&lt;br&gt;
+输入：n = 2 ,array = [[1, 2], [2, 3]]&lt;br&gt;
+输出：2&lt;/p&gt;
+&lt;h2 id=&#34;idea-5&#34;&gt;idea&lt;/h2&gt;
+&lt;p&gt;也就是会形成一个四边形，找一列有最多数的。然后感觉不好搞&lt;/p&gt;
+&lt;p&gt;可以使用一种基于“事件”处理的算法。对于每个任务，我们将任务的开始时间和结束时间视为两个事件，然后计算每一时刻的并发任务数。这种方法通常被称为扫描线算法，因为我们将时间线分成事件点，并计算每个时间点的并发任务数。&lt;/p&gt;
+&lt;h2 id=&#34;exp-6&#34;&gt;exp&lt;/h2&gt;
+&lt;pre&gt;&lt;code&gt;def solution(n: int, array: list) -&amp;gt; int:
+    events = []
+    
+    # 将每个任务的开始和结束时间作为事件记录
+    for start, duration in array:
+        events.append((start, 1))          # 开始事件，加1并发
+        events.append((start + duration, -1))  # 结束事件，减1并发
+
+    # 按照时间排序，时间相同的情况下，优先处理开始事件
+    events.sort(key=lambda x: (x[0], x[1]))
+
+    # 计算最大并发数
+    max_concurrent = 0
+    current_concurrent = 0
+    
+    for time, event_type in events:
+        current_concurrent += event_type
+        max_concurrent = max(max_concurrent, current_concurrent)
+    
+    return max_concurrent
+
+
+if __name__ == &amp;quot;__main__&amp;quot;:
+    # Add your test cases here
+    print(
+        solution(2, [[1,2], [2,3]]) == 2
+    )
+    print(
+        solution(4, [[1,2], [2,3],[3,5], [4,3]]) == 3
+    )
+&lt;/code&gt;&lt;/pre&gt;
+">MarsCode算法题（一）</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/2024_10_weekly_diary/"" data-c="
+          &lt;h1 id=&#34;虽然也是没有做太多事情但也是忙忙碌碌的00&#34;&gt;虽然也是没有做太多事情，但也是忙忙碌碌的0.0&lt;/h1&gt;
+&lt;p&gt;这周因为过生日，前面耗费了一些精力。&lt;br&gt;
+但是&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1730122382756.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1730122396239.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;然后学习方面&#34;&gt;然后学习方面&lt;/h2&gt;
+&lt;p&gt;从上周开始了CSAPP的速通，目前读到了160页左右（前面的有些基础，就快速过的），下周起码搞完一个实验。&lt;br&gt;
+还有就是代码随想录的学习，二叉树也刷到了一半，但平常需要多看，到时候也挂blog上&lt;br&gt;
+另外就是字节的一些算法题写了些。&lt;/p&gt;
+&lt;!-- more --&gt;
+&lt;h2 id=&#34;下周计划&#34;&gt;下周计划&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;csapp最少一个实验&lt;/li&gt;
+&lt;li&gt;代码随想录二叉树继续看能不能搞完&lt;/li&gt;
+&lt;li&gt;看雪的Android看看&lt;/li&gt;
+&lt;li&gt;English也要提上来了&lt;/li&gt;
+&lt;/ol&gt;
+">十月倒数第二周</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/shi-pin-fen-xi-gai-yao-xiang-mu/"" data-c="
+          &lt;h1 id=&#34;简介&#34;&gt;简介&lt;/h1&gt;
+&lt;p&gt;和朋友一起搞的一个小项目，但是做完感觉还是很有用的&lt;br&gt;
+就是一个简单的视频分析，添加字幕，提炼大纲，将大纲转换为脑图。然后我们旁边加了一个问答模块。&lt;br&gt;
+只需：填写api密钥--&amp;gt;上传视频：可生成字幕、时间轴、大纲、脑图。右侧配有AI小智&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1728831833860.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;实现&#34;&gt;实现&lt;/h1&gt;
+&lt;p&gt;&lt;strong&gt;其实我们这个主要也还是前端做的还行，后端都是找的工具调用。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;前端：&lt;br&gt;
+HTML和CSS&lt;br&gt;
+HTML和CSS紧密整合，共同构建网页的基础架构。HTML负责内容和结构，而CSS负责样式和布局。两者结合使用，可以创建既具有良好视觉效果又具备清晰结构的网页，满足现代网页设计的需求。&lt;br&gt;
+快速开发——Bootstrap框架&lt;br&gt;
+还有一个ckPlayer插件&lt;br&gt;
+使用JavaScript和jQuery-AJAX技术进行异步请求&lt;br&gt;
+然后还有一个蓝图注册，可以方便以后添加模块&lt;/p&gt;
+&lt;p&gt;后端：&lt;br&gt;
+首先就是Whisper模型语音转录&lt;br&gt;
+FFmpeg从视频中提取音频并生成SRT字幕文件&lt;br&gt;
+OpenCC文字转换&lt;br&gt;
+FFmpeg将SRT字幕嵌入视频&lt;br&gt;
+然后就是大模型部分&lt;br&gt;
+接入OpenAI模型，对SRT内容进行分析，得到大纲和分段概要和结束节点&lt;br&gt;
+最后用networkx和matplotlib据分析结果得到脑图&lt;/p&gt;
+&lt;h1 id=&#34;总结&#34;&gt;总结&lt;/h1&gt;
+&lt;p&gt;项目还是非常有用的，也学到了很多，也还有很多功能可以加入，之后也会继续完善。&lt;br&gt;
+&lt;a href=&#34;https://github.com/Big-Halo/video-summary&#34;&gt;Github地址&lt;/a&gt;&lt;/p&gt;
+">视频分析概要项目</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/2024-shu-jia-xue-xi-ji-hua/"" data-c="
+          &lt;p&gt;初找找网上模板，做一个本地网站&lt;br&gt;
+因为说是七月底考核，所以这一个月主要就是学CTF了&lt;br&gt;
+计划是滴水初级课程和ctfshow搞完，Android基础感觉是没时间搞了，只能是边做题边学了，时间还是有点紧的，任务重，加油干吧！！！&lt;br&gt;
+八月差不多可以先放松放松，然后搞点感兴趣的，像爬虫，autojs，数据分析什么的，的时候看看有时间弄弄。&lt;br&gt;
+感觉如果都做了，应该是个很充实的暑假，会提升很多，希望两个月后都能实现&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1721961668937.png&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;br&gt;
+&lt;img src=&#34;https://Big-Halo.github.io/post-images/1721961769551.jpg&#34; alt=&#34;&#34; loading=&#34;lazy&#34;&gt;&lt;/p&gt;
+">2024暑假学习计划</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/di-yi-pian-blog/"" data-c="
+          &lt;p&gt;哈哈哈，终于搞成功了！！！&lt;br&gt;
+一直想搞一个 blog 来记录一下自己的学习和生活，也是一个以后可以回忆的地方。&lt;br&gt;
+也欢迎大家看，评论留言。&lt;br&gt;
+❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️❤️&lt;/p&gt;
+">第一篇blog</a>
+      </div>
+      
+      <div class="item">
+        <a class="result-title" style="opacity: 0;" href="https://Big-Halo.github.io/post/about/"" data-c="
+          &lt;blockquote&gt;
+&lt;p&gt;欢迎来到我的小站呀，很高兴遇见你！🤝&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;h2 id=&#34;关于本站&#34;&gt;🏠 关于本站&lt;/h2&gt;
+&lt;h2 id=&#34;博主是谁&#34;&gt;👨‍💻 博主是谁&lt;/h2&gt;
+&lt;h2 id=&#34;兴趣爱好&#34;&gt;⛹ 兴趣爱好&lt;/h2&gt;
+&lt;h2 id=&#34;联系我呀&#34;&gt;📬 联系我呀&lt;/h2&gt;
+">关于</a>
+      </div>
+      
+    </div>
+    <div class="page">
+      <div id="page_ul"></div>
+    </div>
+  </div>
+</div>
+<script>
+  !function () {
+    let searchMask = document.querySelector('#search_mask');
+    let result = document.querySelector('#result');
+    let items = document.querySelectorAll('.item');
+    let searchBox = document.querySelector('#search');
+    let statCount = document.querySelector('#stat_count');
+    let statTimes = document.querySelector('#stat_times');
+    let pageUl = document.querySelector('#page_ul');
+    let close = document.querySelector('#close');
+    
+    close.addEventListener('click', function() {
+      searchMask.style = 'display: none;'
+    })
+
+    let finds = [];
+    let contents = [];
+    let pageSize = 10;
+    items.forEach(item => {
+      let a = item.querySelector('a');
+      contents.push({
+        title: a.innerText,
+        details: a.dataset.c,
+        link: a.href
+      })
+      item.remove();
+    })
+
+    function insertStr(soure, start, count) {
+      let newStr = soure.substr(start, count);
+      return soure.slice(0, start) + '<em>' + newStr + '</em>' + soure.slice(start + count);
+    }
+
+    pageUl.addEventListener('click', function(event) {
+      let target = event.target;
+      if (target.__proto__ === HTMLSpanElement.prototype) {
+        appendResults(parseInt(target.dataset.i));
+      }
+    })
+
+    function appendResults(index) {
+      let htmlResult = '';
+      let start = index || 0;
+      let end = Math.min(start + pageSize, finds.length);
+      for (let i = start; i < end; i++) {
+        const current = finds[i];
+        let html = current.title;
+        let sum = 0;
+        let positions = current.positions;
+        positions.forEach(position => {
+          html = insertStr(html, position.start + sum, position.count);
+          sum += 9;
+        })
+        htmlResult += `<div class="item"><a class="result-title" href="${current.link}">${html}</a></div>`;
+      }
+      result.innerHTML = htmlResult;
+      pageUl.innerHTML = '';
+      let count = finds.length / pageSize;
+      let lis = '';
+      if (start !== 0) {
+        lis += `<span class="fa fa-angle-left" data-i='${start - 1}'></span>`;
+      }
+      for (let i = 0; i < count; i++) {
+        lis += `<span class='${i === start?'current':''}' data-i='${i}'>${i+1}</span>`;     
+      }
+      if (start+1 < count) {
+        lis += `<span class="fa fa-angle-right" data-i='${start+1}'></span>`;  
+      }
+      pageUl.innerHTML = lis;
+    }
+
+    function search(delay) {
+      let timer = null
+      return function () {
+        clearTimeout(timer)
+        timer = setTimeout(() => {
+          let start = Date.now();
+          let segments = searchBox.value.split(' ').filter(c => c != '');
+          if (segments.length <= 0) {
+            return;
+          }
+          finds = [];
+          let htmlResult = '';
+          contents.forEach(content => {
+            let title = content.title;
+            let positions = [];
+            let find = false;
+            segments.forEach((segment) => {
+              if (content.title.includes(segment)) {
+                find = true;
+                positions.push({
+                  start: content.title.indexOf(segment),
+                  count: segment.length
+                })
+              } else if (content.details.includes(segment)) {
+                find = true;
+              }
+            });
+            if (find) {
+              finds.push({
+                title: content.title,
+                link: content.link,
+                positions
+              });
+            }
+          })
+          appendResults(0);
+          statCount.textContent = finds.length;
+          statTimes.textContent = Date.now() - start;
+        }, delay)
+      }
+    }
+    searchBox.addEventListener('input', search(200));
+  }()
+</script>
+
+<input hidden id="copy" />
+<script>
+  !function () {
+    let times = document.querySelectorAll('.publish-time');
+    for (let i = 0; i < times.length; i++) {
+      let date = times[i].dataset.t;
+      let time = Math.floor((new Date().getTime() - new Date(date).getTime()) / 1000);
+      if (time < 60) {
+        str = time + '秒之前';
+      } else if (time < 3600) {
+        str = Math.floor(time / 60) + '分钟之前';
+      } else if (time >= 3600 && time < 86400) {
+        str = Math.floor(time / 3600) + '小时之前';
+      } else if (time >= 86400 && time < 259200) {
+        str = Math.floor(time / 86400) + '天之前';
+      } else {
+        str = times[i].textContent;
+      }
+      times[i].textContent = str;
+    }
+  }();
+</script>
+
+<script>
+  let language = '';
+  if (language !== '') {
+    let map = new Map();
+    if (language === 'en') {
+      map.set('search', 'Search');
+      map.set('category', 'Categories');
+      map.set('article', 'Articles');
+      map.set('tag', 'Tags');
+      map.set('top', 'Top');
+      map.set('publish', 'published');
+      map.set('minute', ' minutes');
+      map.set('read-more', 'Read More');
+      map.set('view', 'View');
+      map.set('words', ' words');
+      map.set('category-in', 'category in');
+      map.set('preview', 'Meta');
+      map.set('index', 'Toc');
+      map.set('no-archives', "You haven't created yet");
+      map.set('archives', " articles in total");
+      map.set('cloud-tags', " tags in total");
+      map.set('copyright', "Copyright: ");
+      map.set('author', "Author: ");
+      map.set('link', "Link: ");
+      map.set('leave-message', "Leave a message");
+      map.set('format', "Links Format");
+      map.set('site-name', "Name: ");
+      map.set('site-link', "Link: ");
+      map.set('site-desc', "Desc: ");
+      map.set('stat', " related results, taking ");
+      map.set('stat-time', " ms");
+      map.set('site-img', "Image: ");
+    }
+
+    if (map.size > 0) {
+      let lanElems = document.querySelectorAll('.language');
+      lanElems.forEach(elem => {
+        let lan = elem.dataset.lan, text = map.get(lan);
+        if (elem.__proto__ === HTMLInputElement.prototype) {
+          elem.placeholder = text
+        } else {
+          if (elem.dataset.count) {
+            text = elem.dataset.count + text;
+          }
+          elem.textContent = text;
+        }
+      })
+    }
+  }
+
+  window.Clipboard = (function (window, document, navigator) {
+    var textArea,
+      copy;
+
+    // 判断是不是ios端
+    function isOS() {
+      return navigator.userAgent.match(/ipad|iphone/i);
+    }
+    //创建文本元素
+    function createTextArea(text) {
+      textArea = document.createElement('textArea');
+      textArea.value = text;
+      textArea.style.width = 0;
+      textArea.style.height = 0;
+      textArea.clientHeight = 0;
+      textArea.clientWidth = 0;
+      document.body.appendChild(textArea);
+    }
+    //选择内容
+    function selectText() {
+      var range,
+        selection;
+
+      if (isOS()) {
+        range = document.createRange();
+        range.selectNodeContents(textArea);
+        selection = window.getSelection();
+        selection.removeAllRanges();
+        selection.addRange(range);
+        textArea.setSelectionRange(0, 999999);
+      } else {
+        textArea.select();
+      }
+    }
+
+    //复制到剪贴板
+    function copyToClipboard() {
+      try {
+        document.execCommand("Copy")
+      } catch (err) {
+        alert("复制错误！请手动复制！")
+      }
+      document.body.removeChild(textArea);
+    }
+
+    copy = function (text) {
+      createTextArea(text);
+      selectText();
+      copyToClipboard();
+    };
+
+    return {
+      copy: copy
+    };
+  })(window, document, navigator);
+
+  function copyCode(e) {
+    if (e.srcElement.tagName === 'SPAN' && e.srcElement.classList.contains('copy-code')) {
+      let code = e.currentTarget.querySelector('code');
+      var text = code.innerText;
+      if (e.srcElement.textContent === '复制成功') {
+        return;
+      }
+      e.srcElement.textContent = '复制成功';
+      (function (elem) {
+        setTimeout(() => {
+          if (elem.textContent === '复制成功') {
+            elem.textContent = '复制代码'
+          }
+        }, 1000);
+      })(e.srcElement)
+      Clipboard.copy(text);
+    }
+  }
+
+  let pres = document.querySelectorAll('pre');
+  pres.forEach(pre => {
+    let code = pre.querySelector('code');
+    let copyElem = document.createElement('span');
+    copyElem.classList.add('copy-code');
+    copyElem.textContent = '复制代码';
+    pre.appendChild(copyElem);
+    pre.onclick = copyCode
+  })
+
+</script>
+<script src="/media/js/motion.js"></script>
+
+
+
+
+<script src="/media/js/mouse/love.js"></script>
+
+
+  <script src="/media/js/cool.js"></script>
+
+
+
+  <script src="https://cdn.jsdelivr.net/gh/yremp/yremp-js@1.5/sakura.js"></script>
+
+
+</html>

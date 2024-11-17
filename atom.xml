@@ -1,0 +1,1368 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://Big-Halo.github.io</id>
+    <title>Big-Halo</title>
+    <updated>2024-11-17T16:30:57.284Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://Big-Halo.github.io"/>
+    <link rel="self" href="https://Big-Halo.github.io/atom.xml"/>
+    <subtitle>我们半推半就的人生</subtitle>
+    <logo>https://Big-Halo.github.io/images/avatar.png</logo>
+    <icon>https://Big-Halo.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2024, Big-Halo</rights>
+    <entry>
+        <title type="html"><![CDATA[2024-11-thirdWeek]]></title>
+        <id>https://Big-Halo.github.io/post/2024-11-thirdweek/</id>
+        <link href="https://Big-Halo.github.io/post/2024-11-thirdweek/">
+        </link>
+        <updated>2024-11-17T16:21:59.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="summary">Summary</h1>
+<p>这周怎么说，有一点沉迷于game了，东西太多了，感觉总是搞不完，容易放弃。</p>
+<h1 id="have-done">Have done</h1>
+<p>把随想录的单调栈搞完了。<br>
+然后就是每天的任务，三道题和练中学。<br>
+把期中考试搞完了。<br>
+csapp看了一点。</p>
+<h1 id="not-did">Not did</h1>
+<p>csapp说搞，进度推不上去。<br>
+随想录的复习</p>
+<h1 id="to-do">To do</h1>
+<p>先学学怎么git推送。<br>
+随想录赶紧干<br>
+csapp也要赶<br>
+把华为ict确定大概<br>
+服务器看能不能落实<br>
+还有就是黑马的苍穹外卖及狂神的Java</p>
+<p>任重道远啊 0.o</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[单调栈]]></title>
+        <id>https://Big-Halo.github.io/post/dan-diao-zhan/</id>
+        <link href="https://Big-Halo.github.io/post/dan-diao-zhan/">
+        </link>
+        <updated>2024-11-12T11:36:16.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="introducing">Introducing</h1>
+<p>通常是一维数组，要寻找任一个元素的右边或者左边第一个比自己大或者小的元素的位置。<br>
+本质是空间换时间。<br>
+也就是来记录遍历过的元素。</p>
+<h1 id="steps">Steps</h1>
+<ol>
+<li>单调栈里存放元素的含义</li>
+<li>单调栈中元素的顺序<br>
+是递增还是递减<br>
+单调递增对应是找右边第一个比其大的元素</li>
+<li>对栈元素的判断使用<br>
+就是当前遍历的元素与栈顶元素的比较</li>
+</ol>
+<h1 id="practices">Practices</h1>
+<h2 id="每日温度">每日温度</h2>
+<p>请根据每日 气温 列表，重新生成一个列表。对应位置的输出为：要想观测到更高的气温，至少需要等待的天数。如果气温在这之后都不会升高，请在该位置用 0 来代替。<br>
+例如，给定一个列表 temperatures = [73, 74, 75, 71, 69, 72, 76, 73]，你的输出应该是 [1, 1, 4, 2, 1, 1, 0, 0]。<br>
+提示：气温 列表长度的范围是 [1, 30000]。每个气温的值的均为华氏度，都是在 [30, 100] 范围内的整数。</p>
+<h3 id="idea">idea</h3>
+<p>刚开始看的时候还是比较懵的，看了讲解，好了一些。这个也就是按照三部曲，先开始遍历temps数组，单调栈中存放的是元素的下标，因为要找比其大的元素所以是递增顺序，可以自己模拟一下去理解。<br>
+<img src="https://Big-Halo.github.io/post-images/1731502143197.png" alt="" loading="lazy"><br>
+开头元素下标入栈后，后面当前元素大于栈顶元素时先pop栈顶元素，然后当前元素下标入栈，一直到遍历完。那个res[i]的下标i就是pop出的下标值。</p>
+<h3 id="exp">exp</h3>
+<pre><code>vector&lt;int&gt; tempList(vector&lt;int&gt;&amp; temperatures) {
+	int n = temperatures.size();
+	stack&lt;int&gt; st;
+	vector&lt;int&gt; res(n,0);
+	st.push(0);
+	for (int i = 1; i &lt; n; i++) {
+		// same condition
+		//if (temperatures[i] &gt; temperatures[st.top()]) {
+		//	// curElement VS stackTopElement
+		//	res[st.top()] = i - st.top();
+		//	st.pop();
+		//	st.push(i);
+		//}
+		if (temperatures[i] &lt; temperatures[st.top()]) {
+			st.push(i);
+		}
+		else if (temperatures[i] == temperatures[st.top()]) {
+			st.push(i);
+		}
+		else {
+			// continuous judgement
+			while (!st.empty() &amp;&amp; temperatures[i] &gt; temperatures[st.top()]) {
+				res[st.top()] = i - st.top();
+				st.pop();
+			}
+			st.push(i);
+		}
+	}
+	return res;
+}
+// streamline
+vector&lt;int&gt; dailyTemperatures(vector&lt;int&gt;&amp; T) {
+	stack&lt;int&gt; st; // 递增栈
+	vector&lt;int&gt; result(T.size(), 0);
+	for (int i = 0; i &lt; T.size(); i++) {
+		while (!st.empty() &amp;&amp; T[i] &gt; T[st.top()]) { // 注意栈不能为空
+			result[st.top()] = i - st.top();
+			st.pop();
+		}
+		st.push(i);
+
+	}
+	return result;
+}
+</code></pre>
+<h2 id="下一个更大元素-i">下一个更大元素 I</h2>
+<p>给你两个 没有重复元素 的数组 nums1 和 nums2 ，其中nums1 是 nums2 的子集。<br>
+请你找出 nums1 中每个元素在 nums2 中的下一个比其大的值。<br>
+nums1 中数字 x 的下一个更大元素是指 x 在 nums2 中对应位置的右边的第一个比 x 大的元素。如果不存在，对应位置输出 -1 。<br>
+输入: nums1 = [4,1,2], nums2 = [1,3,4,2].<br>
+输出: [-1,3,-1]<br>
+解释:<br>
+对于 num1 中的数字 4 ，你无法在第二个数组中找到下一个更大的数字，因此输出 -1 。<br>
+对于 num1 中的数字 1 ，第二个数组中数字1右边的下一个较大数字是 3 。<br>
+对于 num1 中的数字 2 ，第二个数组中没有下一个更大的数字，因此输出 -1 。</p>
+<h3 id="idea-2">idea</h3>
+<p>就是上面题目的进阶版，先要找到nums1在nums2的位置，然后往后找。还有从什么遍历，我觉得应该是遍历nums2去找nums1，好像也不太对，也是要有n层for循环。<strong>在哪里寻找就在哪里遍历</strong><br>
+然后就是nums1与nums2的联系，需要一个映射关系，遍历nums2，需要找是否在nums1出现，若有，则在nums1对应下标位置res填充在nums2找到的大元素，需要一个哈希映射，这里用到是map，KV的存储结构，<strong>unordered_map&lt;k,v&gt;</strong>。<br>
+<strong>栈存放的还是nums2的下标，对nums2使用单调栈操作，最后在收获结果的时候，通过哈希map映射，对res对应进行赋值</strong></p>
+<h3 id="exp-2">exp</h3>
+<pre><code>#include &quot;headers.cpp&quot;
+#include &lt;unordered_map&gt;
+vector&lt;int&gt; nextGreaterElement(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {
+	int m = nums1.size();
+	int n = nums2.size();
+	vector&lt;int&gt; res(m, -1);  // init -1
+	if (nums1.empty())
+		return res;
+	unordered_map&lt;int, int&gt; umap;  // key: nums1[i],value: i
+	for (int i = 0; i &lt; m; i++)
+		umap[nums1[i]] = i;
+
+	stack&lt;int&gt; st;                 // collect the index of nums2
+	st.push(0);
+	for (int i = 1; i &lt; n; i++) {
+		if (nums2[i] &lt; nums2[st.top()]) {
+			st.push(i);
+		}
+		else if (nums2[i] == nums2[st.top()]) {
+			st.push(i);
+		}
+		else {
+			while (!st.empty() &amp;&amp; nums2[i] &gt; nums2[st.top()]) {
+				// first check whether exists in nums1
+				if (umap.count(nums2[st.top()]) &gt; 0) {
+					// count 返回 1 表示存在，0 表示不存在
+					int index = umap[nums2[st.top()]];  // 根据映射找到nums1对应下标
+					res[index] = nums2[i];
+				}
+				st.pop();
+			}
+			st.push(i);
+		}
+	}
+	return res;
+}
+</code></pre>
+<h2 id="下一个更大元素-ii">下一个更大元素 II</h2>
+<p>给定一个循环数组（最后一个元素的下一个元素是数组的第一个元素），输出每个元素的下一个更大元素。数字 x 的下一个更大的元素是按数组遍历顺序，这个数字之后的第一个比它更大的数，这意味着你应该循环地搜索它的下一个更大的数。如果不存在，则输出 -1。</p>
+<p>输入: [1,2,1]<br>
+输出: [2,-1,2]<br>
+解释: 第一个 1 的下一个更大的数是 2；数字 2 找不到下一个更大的数；第二个 1 的下一个最大的数需要循环搜索，结果也是 2。</p>
+<h3 id="idea-3">idea</h3>
+<p>又套了一个壳子，就是要处理这个循环问题。<br>
+应该就是把最后一个res[n-1]用res[0]赋值就可以了，好像有点问题，因为头尾元素可能不一样。<br>
+首先，可以再次线性拼接以模拟成环。<br>
+或者，<strong>对于成环和首尾相连用取模的方法来做</strong>。</p>
+<h3 id="exp-3">exp</h3>
+<pre><code>// compose 
+vector&lt;int&gt; nextGreaterElements(vector&lt;int&gt;&amp; nums) {
+	vector&lt;int&gt; copy(nums.begin(), nums.end());
+	// iterator insert (iterator position, InputIterator first, InputIterator last);
+	nums.insert(nums.end(), copy.begin(), copy.end());
+	vector&lt;int&gt; res(nums.size(), -1);
+	if (nums.size() == 0)
+		return res;
+	stack&lt;int&gt; st;
+	st.push(0);
+	for (int i = 1; i &lt; nums.size(); i++) {
+		if (nums[i] &lt; nums[st.top()])
+			st.push(i);
+		else if (nums[i] == nums[st.top()])
+			st.push(i);
+		else {
+			while (!st.empty() &amp;&amp; nums[i] &gt; nums[st.top()]) {
+				res[st.top()] = nums[i];
+				st.pop();
+			}
+			st.push(i);
+		}
+	}
+	// finally solve resArray
+	res.resize(nums.size() / 2);
+	return res;
+}
+
+// mod
+vector&lt;int&gt; nextGreaterElementsMod(vector&lt;int&gt;&amp; nums) {
+	int n = nums.size();
+	vector&lt;int&gt; res(n, -1);
+	if (n == 0)
+		return res;
+	stack&lt;int&gt; st;
+	st.push(0);
+	for (int i = 1; i &lt; n*2; i++) {
+		if (nums[i % n] &lt; nums[st.top()])
+			st.push(i % n);
+		else if (nums[i % n] == nums[st.top()])
+			st.push(i % n);
+		else {
+			while (!st.empty() &amp;&amp; nums[i % n] &gt; nums[st.top()]) {
+				res[st.top()] = nums[i % n];
+				st.pop();
+			}
+			st.push(i % n);
+		}
+	}
+	return res;
+}
+</code></pre>
+<h2 id="接雨水">接雨水</h2>
+<p>给定 n 个非负整数表示每个宽度为 1 的柱子的高度图，计算按此排列的柱子，下雨之后能接多少雨水。<br>
+示例 1：<br>
+<img src="https://Big-Halo.github.io/post-images/1731550643513.png" alt="" loading="lazy"><br>
+输入：height = [0,1,0,2,1,0,1,3,2,1,2,1]<br>
+输出：6<br>
+解释：上面是由数组 [0,1,0,2,1,0,1,3,2,1,2,1] 表示的高度图，在这种情况下，可以接 6 个单位的雨水（蓝色部分表示雨水）。<br>
+示例 2：<br>
+输入：height = [4,2,0,3,2,5]<br>
+输出：9</p>
+<h3 id="idea-4">idea</h3>
+<p>主要就是要找到蓝色的区域，首先应该也是要找比当前元素大于等于的元素才能围住，然后就是求两者间大小了。<br>
+如例子1： 1 0 2 -&gt; 1 , 2 1 0 1 3 -&gt; 4 .<br>
+又仔细看了一下，好像是下标差。但用例子2验证好像有问题。<br>
+或者就是先找左右两边最高的，但对于例子1又有点问题。<br>
+求中间凹槽，应该是要找当前柱子左右比其高的柱子。属于先简化模型 |_| ，下凹就是栈顶元素，右边柱子是比栈顶大的右边第一个元素，左边柱子就是栈顶下面一个元素。<br>
+从头遍历所有的列，并且要注意第一个柱子和最后一个柱子不接雨水<br>
+三者间的高度和宽度的乘积就是当前区域雨水，注意这样是<strong>横向求解</strong>。<br>
+一些暴力求解是<strong>纵向求解</strong>。<br>
+<img src="https://Big-Halo.github.io/post-images/1731578933954.png" alt="" loading="lazy"><br>
+按列就是：<strong>height=min( lHeight , rHeight ) - curHeight</strong><br>
+这类题目应该和贪心，动规一样，先简化模型，分析局部，不要上来就整体分析。</p>
+<h3 id="exp-4">exp</h3>
+<p>有暴力解法，双指针优化和单调栈三种方法。<br>
+双指针：为了得到两边的最高高度，使用了双指针来遍历，每到一个柱子都向两边遍历一遍，这其实是有重复计算的。我们把每一个位置的左边最高高度记录在一个数组上（maxLeft），右边最高高度记录在一个数组上（maxRight），分别记录每个位置左侧和右侧的最高柱子高度，这样就避免了重复计算。<br>
+就只有单调栈是按行计算。</p>
+<pre><code>#include &quot;headers.cpp&quot;
+// O(n^2)
+int trapForce(vector&lt;int&gt;&amp; heights) {
+	int sum = 0;
+	for (int i = 0; i &lt; heights.size(); i++) {
+		// first and last can't collect rain
+		if (i == 0 || i == heights.size() - 1)
+			continue;
+		int rHeight = heights[i];
+		int lHeight = heights[i];
+		for (int r = i + 1; r &lt; heights.size(); r++) {
+			if (heights[r] &gt; rHeight) {
+				rHeight = heights[r];
+			}
+		}
+		for (int l = i - 1; l &gt;= 0; l--) {
+			if (heights[l] &gt; lHeight) {
+				lHeight = heights[l];
+			}
+		}
+		int hig = min(lHeight, rHeight) - heights[i];
+		if (hig &gt; 0)
+			sum += hig;
+	}
+	return sum;
+}
+
+// 双指针+预计算
+int trapPerdict(vector&lt;int&gt;&amp; heights) {
+	if (heights.size() &lt;= 2)
+		return 0;
+	int size = heights.size();
+	vector&lt;int&gt; maxLeft(heights.size(), 0);
+	vector&lt;int&gt; maxRight(heights.size(), 0);
+	// record each column maxLeft
+	maxLeft[0] = heights[0];
+	for (int i = 1; i &lt; size; i++) {
+		maxLeft[i] = max(heights[i], maxLeft[i - 1]);
+	}
+	maxRight[size - 1] = heights[size - 1];
+	for (int i = size - 2; i &gt;= 0; i--) {
+		maxRight[i] = max(heights[i], maxRight[i + 1]);
+	}
+	// calculate sum
+	int sum = 0;
+	for (int i = 0; i &lt; size; i++) {
+		int curHig=min(maxLeft[i],maxRight[i])-heights[i];
+		if (curHig &gt; 0)
+			sum += curHig;
+	}
+	return sum;
+}
+// 单调栈 O(n)
+int trapStack(vector&lt;int&gt;&amp; heights) {
+	if (heights.size() &lt;= 2)
+		return 0;
+	stack&lt;int&gt; st;
+	st.push(0);
+	int sum = 0;
+	for (int i = 1; i &lt; heights.size(); i++) {
+		if (heights[i] &lt; heights[st.top()])
+			st.push(i);
+		else if (heights[i] == heights[st.top()]) {
+			st.pop();  // remove Duplicates .If not,hig=0 
+			st.push(i);
+		}
+		else {
+			while (!st.empty() &amp;&amp; heights[i] &gt; heights[st.top()]) {
+				int mid = st.top();
+				st.top();
+				if (!st.empty()) {
+					int hig = min(heights[st.top()], heights[i]) - heights[mid];
+					int wid = i - st.top() - 1;
+					sum += hig * mid;
+				}
+			}
+			st.push(i);
+		}
+	}
+	return sum;
+}
+</code></pre>
+<h2 id="柱状图中最大矩形">柱状图中最大矩形</h2>
+<p>给定 n 个非负整数，用来表示柱状图中各个柱子的高度。每个柱子彼此相邻，且宽度为 1 。<br>
+求在该柱状图中，能够勾勒出来的矩形的最大面积。<br>
+<img src="https://Big-Halo.github.io/post-images/1731591497880.png" alt="" loading="lazy"></p>
+<h3 id="idea-5">idea</h3>
+<p>感觉和上题非常的像啊，唉，思路还是有点没打开。<br>
+上面那个是对外，求左右两边比其大的柱子，形成凹槽。<br>
+而这个是对内，应该求左右两边比其小的柱子，其作基准，看能不能往两边扩展。<br>
+单调栈就应该是递减的顺序，遍历元素与栈顶元素的关系比较也相反。<br>
+但还有些细节：<br>
+<strong>首尾加 0</strong><br>
+是为了特殊情况（递增或递减数组）也可以求出结果。<br>
+尾0是递增数组为了有一个元素可以小于栈顶元素，可以进入收获结果的块中。<br>
+头0是递减数组为了为了避免空栈取值，直接跳过了计算结果的逻辑。</p>
+<h3 id="exp-5">exp</h3>
+<p>也是三种解法。<br>
+对于双指针：难就难在本题要记录记录每个柱子 左边第一个小于该柱子的下标，而不是左边第一个小于该柱子的高度。<br>
+对于单调栈，上面说了。</p>
+<pre><code>#include &quot;headers.cpp&quot;
+
+int largeestRectangleAreaForce(vector&lt;int&gt;&amp; heights) {
+	int sum = 0;
+	for (int i = 0; i &lt; heights.size(); i++) {
+		int left = i;
+		int right = i;
+		for (; left &gt;= 0; left--) {
+			if (heights[left] &lt; heights[i])
+				break;
+		}
+		for (; right &lt; heights.size(); right++) {
+			if (heights[right] &lt; heights[i])
+				break;
+		}
+		int wid = right - left - 1;
+		int hig = heights[i];
+		sum = max(sum, wid * hig);
+	}
+	return sum;
+}
+// O(n)
+int largestRectangleAreaPred(vector&lt;int&gt;&amp; heights) {
+	int size = heights.size();
+	vector&lt;int&gt; minLeftIndex(size);
+	vector&lt;int&gt; minRightIndex(size);
+	// record the left index which is less than curColumn
+	minLeftIndex[0] = -1;    // avoid endless loop
+	for (int i = 1; i &lt; size; i++) {
+		int t = i - 1;
+		// 利用了动态规划的思想,复用了之前计算的结果
+		while (t &gt;= 0 &amp;&amp; heights[t] &gt;= heights[i])
+			t = minLeftIndex[t];   // 不断向左寻找的过程
+		minLeftIndex[i] = t;
+	}
+	// 右边第一个小于该柱子的下标
+	minRightIndex[size - 1] = size; 
+	for (int i = size - 2; i &gt;= 0; i--) {
+		int t = i + 1;
+		while (t &lt; size &amp;&amp; heights[t] &gt;= heights[i])
+			t = minRightIndex[t];
+		minRightIndex[i] = t;
+	}
+	// calculate sum
+	int res = 0;
+	for (int i = 0; i &lt; size; i++) {
+		int sum = heights[i] * (minRightIndex[i] - minLeftIndex[i] - 1);
+		res = max(sum, res);
+	}
+	return res;
+}
+// 
+int largestRectangleAreaStack(vector&lt;int&gt;&amp; heights) {
+	int res = 0;
+	stack&lt;int&gt; st;
+	// specially deal with heights
+	heights.insert(heights.begin(), 0);  // add 0 at head
+	heights.push_back(0);                // add 0 at end
+	st.push(0);
+	for (int i = 1; i &lt; heights.size(); i++) {
+		if (heights[i] &gt; heights[st.top()])
+			st.push(i);
+		else if (heights[i] == heights[st.top()]) {
+			st.pop();
+			st.push(i);
+		}
+		else {
+			while (!st.empty() &amp;&amp; heights[i] &lt; heights[st.top()]) {
+				int mid = st.top();
+				st.pop();
+				if (!st.empty()) {
+					int left = st.top();
+					int right = i;
+					int wid = right - left - 1;
+					int hig = heights[mid];
+					res = max(res, wid * hig);
+				}
+			}
+			st.push(i);
+		}
+	}
+	return res;
+}
+</code></pre>
+<h1 id="summary">Summary</h1>
+<p>单调栈的解法也是比较好的一种算法，主要是用于要找一个元素的左右边的一个大于或小于其的元素。然后单调栈一般存下标的情况比较多，两种顺序。还有就是对问题的分析，可以借鉴贪心和动规，先局部再整体。还有一些技巧就之后遇到了再记录吧。</p>
+<p>完结，撒花！！！😁😁😁</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2024-11-secondWeek]]></title>
+        <id>https://Big-Halo.github.io/post/2024-11-secondweek/</id>
+        <link href="https://Big-Halo.github.io/post/2024-11-secondweek/">
+        </link>
+        <updated>2024-11-11T16:04:43.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="summary">Summary</h1>
+<p>金工实习终于是结束了，后面也是没学到什么，听了星盟 tok✌️的讲解，认识到大佬们还是tql</p>
+<h1 id="have-done">Have done</h1>
+<p>金工实习，0.0<br>
+bomb lab搞到第四个了</p>
+<h1 id="to-do">To do</h1>
+<p>csapp学习，bomb和data两个lab整理出来。</p>
+<p>代码随想录（主）<br>
+贪心，动态规划。。。都要开一点。</p>
+<p>掘金题目和课程（看看）</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2024-11-firstWeek]]></title>
+        <id>https://Big-Halo.github.io/post/2024-11-firstweek/</id>
+        <link href="https://Big-Halo.github.io/post/2024-11-firstweek/">
+        </link>
+        <updated>2024-11-11T16:00:10.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="summary">Summary</h1>
+<p>开始金工实习了，中午的时间就几乎没有了，下午回来也是很疲累，所以这周学的很少。<br>
+主要就是掘金刷题了</p>
+<h1 id="have-done">Have done</h1>
+<p>感觉没有做完什么，有点废 0.0</p>
+<h1 id="to-do">To do</h1>
+<p>csapp学习<br>
+代码随想录<br>
+掘金题目</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[回溯算法（三）]]></title>
+        <id>https://Big-Halo.github.io/post/hui-su-suan-fa-san/</id>
+        <link href="https://Big-Halo.github.io/post/hui-su-suan-fa-san/">
+        </link>
+        <updated>2024-11-09T09:45:58.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="子集">子集</h1>
+<p>给定一组不含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。<br>
+说明：解集不能包含重复的子集。<br>
+示例: 输入: nums = [1,2,3] 输出: [ [3],   [1],   [2],   [1,2,3],   [1,3],   [2,3],   [1,2],   [] ]</p>
+<h2 id="idea">idea</h2>
+<p>回溯算法的另一种可解决问题，应该也可以抽象为树形结构，但是结果收集不是在叶子节点了，应该是每个节点。子集是收集树形结构中树的所有节点的结果</p>
+<h1 id="子集ii">子集II</h1>
+<p>给定一个可能包含重复元素的整数数组 nums，返回该数组所有可能的子集（幂集）。<br>
+说明：解集不能包含重复的子集。<br>
+示例:<br>
+输入: [1,2,2]<br>
+输出: [ [2], [1], [1,2,2], [2,2], [1,2], [] ]</p>
+<h2 id="idea-2">idea</h2>
+<p>也就是上面子集问题加上同一树层去重。</p>
+<h2 id="exp">exp</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+#include &lt;vector&gt;
+#include &lt;algorithm&gt;
+
+vector&lt;vector&lt;int&gt;&gt; res;
+vector&lt;int&gt; path;
+void backtracking(vector&lt;int&gt;&amp; nums, int startIndex) {
+	res.push_back(path); // 收集子集，要放在终止添加的上面，否则会漏掉自己
+	if (startIndex &gt;= nums.size()) {
+		return;
+	}
+	for (int i = startIndex; i &lt; nums.size(); i++) {
+		path.push_back(nums[i]);
+		backtracking(nums, i + 1);
+		path.pop_back();
+	}
+}
+
+void backtracking2(vector&lt;int&gt;&amp; nums, int startIndex, vector&lt;bool&gt;&amp; used) {
+	res.push_back(path);
+	for (int i = startIndex; i &lt; nums.size(); i++) {
+		if (i &gt; 0 &amp;&amp; nums[i] == nums[i - 1] &amp;&amp; used[i - 1] == false) {
+			continue;
+		}
+		path.push_back(nums[i]);
+		used[i] = true;
+		backtracking2(nums, i + 1, used);
+		used[i] = false;
+		path.pop_back();
+	}
+}
+
+// set 去重
+//unordered_set&lt;int&gt; uset;
+//for (int i = startIndex; i &lt; nums.size(); i++) {
+//	if (uset.find(nums[i]) != uset.end()) {
+//		continue;
+//	}
+
+vector&lt;vector&lt;int&gt;&gt; subsetsWithDup(vector&lt;int&gt;&amp; nums) {
+	res.clear();
+	path.clear();
+	vector&lt;bool&gt; used(nums.size(), false);
+	sort(nums.begin(), nums.end()); // 去重需要排序
+	backtracking2(nums, 0, used);
+	return res;
+}
+</code></pre>
+<h1 id="递增子序列">递增子序列</h1>
+<p>给定一个整型数组, 你的任务是找到所有该数组的递增子序列，递增子序列的长度至少是2。<br>
+示例:<br>
+输入: [4, 6, 7, 7]<br>
+输出: [[4, 6], [4, 7], [4, 6, 7], [4, 6, 7, 7], [6, 7], [6, 7, 7], [7,7], [4,7,7]]<br>
+说明:<br>
+给定数组的长度不会超过15。<br>
+数组中的整数范围是 [-100,100]。<br>
+给定数组中可能包含重复数字，相等的数字应该被视为递增的一种情况。</p>
+<h2 id="idea-3">idea</h2>
+<p>想到可以结合 <strong>queue队列</strong>，先进先出嘛。<br>
+要递增集合首先要排序，但这里不对，排序后的数组就是一个递增序列了，也改变了元素的位置，所以不能排序。<br>
+然后就是回溯的参数，结束条件，单层逻辑。<br>
+也是取每个节点作结果，只是要经过筛选。<br>
+uset是帮数每一层进行去重，进入下一层就重新赋值uset，故单层处理中，uset不用回溯。</p>
+<h2 id="exp-2">exp</h2>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+using namespace std;
+#include &lt;unordered_set&gt;
+
+vector&lt;vector&lt;int&gt;&gt; res;
+vector&lt;int&gt; path;
+
+void backtracking(vector&lt;int&gt;&amp; nums, int startIndex) {
+	if (path.size() &gt; 1) {
+		res.push_back(path);
+	}
+	//
+	unordered_set&lt;int&gt; uset;    // use uset to 进行本层去重
+	for (int i = startIndex; i &lt; nums.size(); i++) {
+		if ((!path.empty() &amp;&amp; nums[i] &lt; path.back())
+			|| uset.find(nums[i]) != uset.end()) {
+			// path is empty,nums[i] to be choicen &lt; path[right],nums[i] have been used
+			continue;
+		}
+		uset.insert(nums[i]);   // record
+		// 是记录本层元素是否重复使用，新的一层uset都会重新定义（清空），所以uset只负责本层
+		path.push_back(nums[i]);
+		backtracking(nums, i + 1);
+		path.pop_back();
+	}
+}
+
+// update
+// use Array to as usedArray
+int used[201] = { 0 }; // 这里使用数组来进行去重操作，题目说数值范围[-100, 100]
+for (int i = startIndex; i &lt; nums.size(); i++) {
+	if ((!path.empty() &amp;&amp; nums[i] &lt; path.back())
+		|| used[nums[i] + 100] == 1) {
+		continue;
+	}
+	used[nums[i] + 100] = 1; // 记录这个元素在本层用过了，本层后面不能再用了
+	path.push_back(nums[i]);
+	backtracking(nums, i + 1);
+	path.pop_back();
+}
+
+vector&lt;vector&lt;int&gt;&gt; findSubsequences(vector&lt;int&gt;&amp; nums) {
+	res.clear();
+	path.clear();
+	backtracking(nums, 0);
+	return res;
+}
+</code></pre>
+<h1 id="review">Review</h1>
+<h2 id="组合">组合</h2>
+<p>组合需不需要startIndex，看是什么进行组合：<br>
+是一个集合去求组合，就需要；多个集合求组合，各个集合间互不影响，就不需要。<br>
+还有就是对去重的理解。</p>
+<h2 id="分割">分割</h2>
+<p>类似组合问题，但是需要注意如何模拟切割线，如何终止，如何截取子串<br>
+还有切割过的地方不能重复切割所以递归函数需要传入i + 1</p>
+<h2 id="子集-2">子集</h2>
+<p>在树形结构中子集问题是要收集所有节点的结果，而组合问题是收集叶子节点的结果</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MarCode算法题（二）]]></title>
+        <id>https://Big-Halo.github.io/post/marcode-suan-fa-ti-er/</id>
+        <link href="https://Big-Halo.github.io/post/marcode-suan-fa-ti-er/">
+        </link>
+        <updated>2024-11-06T12:36:47.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="点菜问题">点菜问题</h1>
+<p>已知该餐馆有 n 道菜，第 i 道菜的售价为 wi 。小C准备点一些价格相同的菜，但小C不会点单价超过<br>
+m 的菜。小C想知道，自己最多可以点多少道菜？<br>
+输入：m = 6, w = [2, 3, 3, 6, 6, 6, 9, 9, 23]<br>
+输出：3</p>
+<h2 id="idea">idea</h2>
+<p>首先要是有重复的，不能超过 m ，可以使用字典，找重复最大且价格不超过 m 的</p>
+<h2 id="exp">exp</h2>
+<pre><code>def solution(m: int, w: list) -&gt; int:
+    # write code here
+    diet={}
+    n=len(w)
+    # first filter not food
+    filtered_prices=[price for price in w if price&lt;=m]
+    for food in filtered_prices:
+        if food in diet:
+            diet[food]+=1
+        else:
+            diet[food]=1
+    # 先是最大，然后不超过()
+    max_count=0
+    for count in diet.values():
+        if count&gt;max_count:
+            max_count=count
+    return max_count
+
+if __name__ == '__main__':
+    print(solution(6, [2, 3, 3, 6, 6, 6, 9, 9, 23]) == 3)
+    print(solution(4, [1, 2, 4, 4, 4]) == 3)
+    print(solution(5, [5, 5, 5, 5, 6, 7, 8]) == 4)
+</code></pre>
+<p>后面还是用 C 来写了</p>
+<blockquote>
+<blockquote>
+<p>int hours = stoi(time.substr(0, 2));<br>
+'18:20' -&gt; '18' -&gt; 18</p>
+</blockquote>
+</blockquote>
+<h1 id="计算器">计算器</h1>
+<p>实现一个基本的计算器来计算一个简单的字符串表达式的值<br>
+如：3+4*5/(3+2)</p>
+<h2 id="idea-2">idea</h2>
+<p>首先肯定要按法则，先找括号，然后乘除，最后加减。<br>
+看着简单，也不好实现 0.0<br>
+按，没想到可以使用<strong>栈</strong>解决。<br>
+然后两个栈，一个存储运算数字，一个存储运算符号。</p>
+<h2 id="exp-2">exp</h2>
+<p>注意这只能处理 0-9 的运算</p>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;string&gt;
+#include &lt;stack&gt;
+
+// 返回运算符的优先级
+int precedence(char op) {
+    if (op == '+' || op == '-')
+        return 1;
+    if (op == '*' || op == '/')
+        return 2;
+    return 0;
+}
+
+// 根据运算符执行计算，并返回结果
+int applyOp(int a, int b, char op) {
+    switch (op) {
+        case '+': return a + b;
+        case '-': return a - b;
+        case '*': return a * b;
+        case '/': return a / b;  // 假设不会有除零情况
+    }
+    return 0;
+}
+
+// 主函数：计算中缀表达式的值
+int solution(std::string expression) {
+    std::stack&lt;int&gt; operandStack;    // 存储操作数的栈
+    std::stack&lt;char&gt; operatorStack;  // 存储运算符的栈
+    
+    // 遍历表达式中的每一个字符
+    for (int i = 0; i &lt; expression.length(); i++) {
+        if (isdigit(expression[i])) {
+            // 如果是数字字符，将其转换为整数并压入操作数栈
+            operandStack.push(expression[i] - '0');
+        } else if (expression[i] == '(') {
+            // 左括号直接压入运算符栈
+            operatorStack.push(expression[i]);
+        } else if (expression[i] == ')') {
+            // 右括号时，处理括号内的运算，直到遇到左括号
+            while (!operatorStack.empty() &amp;&amp; operatorStack.top() != '(') {
+                char op = operatorStack.top(); // 获取运算符
+                operatorStack.pop();           // 弹出运算符
+                int b = operandStack.top();
+                operandStack.pop();
+                int a = operandStack.top();
+                operandStack.pop();
+                // 计算结果并压入操作数栈
+                operandStack.push(applyOp(a, b, op));
+            }
+            operatorStack.pop(); // 弹出左括号 '('
+        } else {
+            // 处理 +, -, *, / 运算符
+            while (!operatorStack.empty() &amp;&amp; precedence(operatorStack.top()) &gt;= precedence(expression[i])) {
+                // 弹出栈顶运算符，并进行计算
+                char op = operatorStack.top();
+                operatorStack.pop();
+                int b = operandStack.top();
+                operandStack.pop();
+                int a = operandStack.top();
+                operandStack.pop();
+                // 将计算结果压入操作数栈
+                operandStack.push(applyOp(a, b, op));
+            }
+            // 当前运算符入栈
+            operatorStack.push(expression[i]);
+        }
+    }
+    
+    // 处理剩余的运算符
+    while (!operatorStack.empty()) {
+        char op = operatorStack.top();
+        operatorStack.pop();
+        int b = operandStack.top();
+        operandStack.pop();
+        int a = operandStack.top();
+        operandStack.pop();
+        // 计算结果并压入操作数栈
+        operandStack.push(applyOp(a, b, op));
+    }
+    
+    // 栈顶的元素即为最终结果
+    return operandStack.top();
+}
+
+int main() {
+    // 测试用例
+    std::cout &lt;&lt; (solution(&quot;1+1&quot;) == 2) &lt;&lt; std::endl;             // 输出: 1 (表示 true)
+    std::cout &lt;&lt; (solution(&quot;3+4*5/(3+2)&quot;) == 7) &lt;&lt; std::endl;     // 输出: 1 (表示 true)
+    std::cout &lt;&lt; (solution(&quot;4+2*5-2/1&quot;) == 12) &lt;&lt; std::endl;      // 输出: 1 (表示 true)
+    std::cout &lt;&lt; (solution(&quot;(1+(4+5+2)-3)+(6+8)&quot;) == 23) &lt;&lt; std::endl; // 输出: 1 (表示 true)
+    return 0;
+}
+</code></pre>
+<h1 id="数字翻译">数字翻译</h1>
+<p>给定一个数字，我们按照如下规则把它翻译为字符串：0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。<br>
+12258 有 5 种不同的翻译，分别是 &quot;bccfi&quot;, &quot;bwfi&quot;, &quot;bczi&quot;, &quot;mcfi&quot; 和 &quot;mzi&quot;</p>
+<h2 id="idea-3">idea</h2>
+<p>一个数字可能有多种翻译方法。有多少种翻译方法，也就是一个动态规划问题。<br>
+从右到左进行翻译</p>
+<h2 id="exp-3">exp</h2>
+<pre><code>#include &lt;iostream&gt;
+using namespace std;
+
+#include &lt;string&gt;
+#include &lt;vector&gt;
+int translateNumA(int num) {
+	// change int into str to deal with
+	std::string str = std::to_string(num);
+	int n = str.size();
+	// dp Array express 字符串从i位置到末尾的翻译方式数量
+	vector&lt;int&gt; dp(n + 1, 0);
+	dp[n] = 1;  // empty str
+	dp[n - 1] = 1;  // single character
+
+	// 倒数第二位开始遍历
+	for (int i = n - 2; i &gt;= 0; i--) {
+		dp[i] = dp[i + 1];   // 翻译当前数字
+		int twoDigit = stoi(str.substr(i, 2));
+		if (twoDigit &gt;= 10 &amp;&amp; twoDigit &lt;= 25) {
+			dp[i] += dp[i + 2];  // 翻译两位数的方式数,接下来的翻译就从位置 i+2 开始
+		}
+	}
+	return dp[0];
+}
+
+int translateNum(int num) {
+	string str = to_string(num);
+	int n = str.size();
+	int dp1 = 1;
+	int dp2 = 1;
+	int dp = 1;
+	for (int i = n - 2; i &gt;= 0; i--) {
+		dp = dp1;
+		int twoDigit = stoi(str.substr(i, 2));
+		if (twoDigit &gt;= 10 &amp;&amp; twoDigit &lt;= 25) {
+			dp += dp2;
+		}
+		// update dp1 dp2
+		dp2 = dp1;
+		dp1 = dp;
+	}
+	return dp;
+}
+int main() {
+
+	return 0;
+}
+</code></pre>
+<h1 id="猫的鱼干大分配">猫的鱼干大分配</h1>
+<p>在猫星球上，小R负责给一行排队的猫分发鱼干。每只猫有一个等级，等级越高的猫应该得到更多的鱼干。规则如下：<br>
+每只猫至少得到一斤鱼干。<br>
+如果一只猫的等级高于它相邻的猫，它就应该得到比相邻的猫更多的鱼干。<br>
+小R想知道，为了公平地满足所有猫的等级差异，他至少需要准备多少斤鱼干。</p>
+<h2 id="idea-4">idea</h2>
+<p>也就是一个模拟执行的例子吧，初始都是1，然后比较（两个方向，从左到右和从右到左）<br>
+结合一次遍历是不行的，<br>
+<img src="https://Big-Halo.github.io/post-images/1731042168880.png" alt="" loading="lazy"></p>
+<h2 id="exp-4">exp</h2>
+<pre><code>int solution(int n, std::vector&lt;int&gt; cats_levels) {
+  // 初始化鱼干分配数组，每只猫至少分配1斤鱼干
+  std::vector&lt;int&gt; fish_distribution(n, 1);
+
+  // 从左到右遍历，确保每只猫的鱼干数量满足条件
+  for (int i = 1; i &lt; n; ++i) {
+    if (cats_levels[i] &gt; cats_levels[i - 1]) {
+      // 如果当前猫的等级比前一只猫高，增加鱼干数量
+      fish_distribution[i] = fish_distribution[i - 1] + 1;
+    }
+  }
+
+  // 从右到左遍历，确保每只猫的鱼干数量满足条件
+  for (int i = n - 2; i &gt;= 0; --i) {
+    if (cats_levels[i] &gt; cats_levels[i + 1]) {
+      // 如果当前猫的等级比后一只猫高，增加鱼干数量
+      fish_distribution[i] = std::max(fish_distribution[i], fish_distribution[i + 1] + 1);
+    }
+  }
+  
+  // for(int i=1;i&lt;n;++i){
+  //   if (cats_levels[i]&gt;cats_levels[i-1]){
+  //     fish_distribution[i]=fish_distribution[i-1]+1;
+  //   }
+  //   else if(cats_levels[i]&lt;cats_levels[i-1]){
+  //     fish_distribution[i-1]+=1;
+  //   }
+  // }
+
+  // 计算总的鱼干数量
+  int total_fish = 0;
+  for (int fish : fish_distribution) {
+    total_fish += fish;
+  }
+
+  return total_fish;
+}
+</code></pre>
+<h1 id="红包金额分割">红包金额分割</h1>
+<p>在一排红包之间“切”两刀，将这一列红包分成三组，并且需要保证第一组的奖金和与最后一组的奖金和一致（允许任意一组的红包集合为空）。最终第一组红包奖金之和就是小王能够拿到的奖金数。<br>
+能帮小王计算下他能拿到的最大奖金么？（如果没有红包可获得，则小王能拿到的最大奖金为 0）<br>
+举例解释：桌子上放了红包 1, 3, 4, 6, 7, 14。小王在“6,7”之间、“7,14” 之间各切一刀，将红包分成 3 组 [1, 3, 4, 6] [7] [14]，其中第一组奖金之和与第三组奖金之和都为 14，所以小明可以拿到 14 元。<br>
+空格分割的红包金额数，共有 N 个<br>
+输出小王可以拿到的最大奖金数</p>
+<h2 id="idea-5">idea</h2>
+<p>应该也是一个动态规划，dp数组应该有两个，一个从左到右，一个从右到左记录累加和。<br>
+查了一下，也可以前缀和和哈希表加速查找。</p>
+<h2 id="exp-5">exp</h2>
+<pre><code>int priceDivide(std::vector&lt;int&gt; redpacks) {
+    int n = redpacks.size();
+    if (n &lt; 3) return 0;
+
+    // 计算前缀和数组和后缀和数组
+    std::vector&lt;int&gt; preSum(n, 0), postSum(n, 0);
+    preSum[0] = redpacks[0];
+    postSum[n - 1] = redpacks[n - 1];
+
+    // 前缀和计算
+    for (int i = 1; i &lt; n; ++i) {
+        preSum[i] = preSum[i - 1] + redpacks[i];
+    }
+
+    // 后缀和计算
+    for (int i = n - 2; i &gt;= 0; --i) {
+        postSum[i] = postSum[i + 1] + redpacks[i];
+    }
+
+    int maxCount = 0;
+    // 遍历可能的分割点，找到符合条件的最大值
+    for (int j = 0; j &lt; n - 1; ++j) {
+        // 检查是否存在 preSum[j] 在后缀和数组中
+        for (int k = j + 2; k &lt; n; ++k) {  // k starts from j + 2 to ensure we have three segments
+            if (preSum[j] == postSum[k]) {
+                maxCount = std::max(preSum[j], maxCount);
+            }
+        }
+    }
+
+    return maxCount;
+}
+</code></pre>
+<h1 id="阿d的最佳飞行路线探索">阿D的最佳飞行路线探索</h1>
+<p>问题描述<br>
+小C和他的领导小F计划一次飞行，但由于严格的航空管制，他们的飞机仅能按特定的路线飞行：飞机只能飞往当前机场的相邻机场或相同航空公司管理的机场。为了减少起飞次数，小C需要制定最优的飞行路线。机场由一个数组airports标识，其中：<br>
+数组每个元素代表一个独特的机场，元素的值代表不同的航空公司。<br>
+airports[0]为起点，airports[airports.length - 1]为终点。<br>
+假设小C当前在机场i，那么i - 1和i + 1（如果存在）代表邻近机场，飞机可以直接前往。<br>
+如果在机场i，且存在airports[i] == airports[j]，则机场i和机场j同属一家航空公司，可直接飞往。<br>
+求最小起飞次数。</p>
+<h2 id="idea-6">idea</h2>
+<p>首先肯定是找到相同的机场，然后看怎么到达。<br>
+也就是 BFS 广度搜索，寻找最短路径。<br>
+然后选择合适的数据结构，这里可以用哈希表（unordered_map），队列</p>
+<h2 id="exp-6">exp</h2>
+<pre><code>#include &lt;iostream&gt;
+#include &lt;vector&gt;
+#include &lt;queue&gt;
+#include &lt;unordered_map&gt;
+#include &lt;unordered_set&gt;
+
+using namespace std;
+
+int minTakeoffs(vector&lt;int&gt;&amp; airports) {
+    int n = airports.size();
+    
+    // 处理特殊情况：如果起点和终点是同一个机场
+    if (n == 1 || airports[0] == airports[n - 1]) {
+        return 0;
+    }
+    
+    // 创建一个字典，记录每个航空公司的机场索引
+    unordered_map&lt;int, vector&lt;int&gt;&gt; airline_map;
+    for (int i = 0; i &lt; n; ++i) {
+        airline_map[airports[i]].push_back(i);
+    }
+    
+    // BFS初始化
+    queue&lt;pair&lt;int, int&gt;&gt; q;  // pair&lt;当前机场索引, 起飞次数&gt;
+    q.push({0, 0});  // 从起点机场出发，起飞次数为0
+    vector&lt;bool&gt; visited(n, false);
+    visited[0] = true;
+
+    while (!q.empty()) {
+        auto [current_index, takeoffs] = q.front();
+        q.pop();
+
+        // 检查是否到达终点机场
+        if (current_index == n - 1) {
+            return takeoffs;
+        }
+        
+        // 访问相邻机场
+        for (int neighbor : {current_index - 1, current_index + 1}) {
+            if (neighbor &gt;= 0 &amp;&amp; neighbor &lt; n &amp;&amp; !visited[neighbor]) {
+                visited[neighbor] = true;
+                q.push({neighbor, takeoffs + 1});
+            }
+        }
+
+        // 访问同一家航空公司的机场
+        int current_airline = airports[current_index];
+        for (int same_airport : airline_map[current_airline]) {
+            if (!visited[same_airport]) {
+                visited[same_airport] = true;
+                q.push({same_airport, takeoffs + 1});
+            }
+        }
+
+        // 清空该航空公司机场的列表，避免后续重复访问
+        airline_map[current_airline].clear();
+    }
+
+    return -1;  // 如果无法到达终点，返回-1（此情况不会发生）
+}
+
+int main() {
+    vector&lt;int&gt; airports = {1, 2, 1, 2, 3};
+    int result = minTakeoffs(airports);
+    cout &lt;&lt; &quot;最小起飞次数: &quot; &lt;&lt; result &lt;&lt; endl;  // 输出：3
+    return 0;
+}
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[十月最后一周]]></title>
+        <id>https://Big-Halo.github.io/post/2024-10-fina-weeklyDiary/</id>
+        <link href="https://Big-Halo.github.io/post/2024-10-fina-weeklyDiary/">
+        </link>
+        <updated>2024-11-04T15:28:20.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="summary">Summary</h1>
+<p>总体比上周过的好一些。周末打了两个比赛，平时也有学。</p>
+<h1 id="have-done">Have done</h1>
+<p>强网杯和软件测试大赛的鸿蒙应用赛的努力。<br>
+听了两次字节大佬的经验分享，也是有所收获。<br>
+CSAPP这两周没看，在做lab，发现也还是容易忘，之后也会登上blog。<br>
+掘金的AI刷题继续开始（有一些错误的题目）也会登。</p>
+<h1 id="to-do">To do</h1>
+<p>下周，好好搞电工实习 0.0<br>
+把 Data Lab 和 Bomb Lab （尽量）搞完。<br>
+掘金的课程学习（看能不能肝到第五节）。<br>
+然后就是每天三四到算法题。<br>
+<img src="https://Big-Halo.github.io/post-images/1730734768719.jpg" alt="" loading="lazy"></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MarsCode算法题（一）]]></title>
+        <id>https://Big-Halo.github.io/post/marscode-suan-fa-ti/</id>
+        <link href="https://Big-Halo.github.io/post/marscode-suan-fa-ti/">
+        </link>
+        <updated>2024-11-04T15:09:52.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="instruction">instruction</h1>
+<p>嗯，目前定的是两天（六道题左右）一发，然后可能一周一总结，对题型的归纳和概况啊hh。<br>
+敬请期待！！！</p>
+<h1 id="雇主招聘问题">雇主招聘问题</h1>
+<p>问题描述<br>
+小U作为一位雇主，想要招聘一位工人。现有 n 个人前来应聘，每个人都写下了他们期望的薪资。小U打算选择期望薪资最低的人，但为了避免纠纷，他只会选择在没有其他人提出相同期望薪资的情况下期望薪资最低的人。如果没有符合条件的人，他将不录用任何人。<br>
+你的任务是帮助小U找到合适的最低薪资。如果没有合适的人，输出 -1。</p>
+<h2 id="idea">idea</h2>
+<p>dict，看排序后第一个薪资工人数是否大于1</p>
+<h2 id="exp">exp</h2>
+<pre><code>def solution(n:int,salaries:list)-&gt;int:
+   # statistics salaries
+   salary_count={}
+   for salary in salaries:
+      if salary in salary_coun:
+         salary_count[salary]+=1
+      else:
+         salary_count[salary]=1
+
+    # satrt to sort
+    sorted_salaries=sorted(salaries)
+
+    # search
+    for salary in sorted_salaries:
+       if salary_count[salary]==1:
+          return salary
+
+    return -1
+</code></pre>
+<h1 id="比赛赢家">比赛赢家</h1>
+<p>每回合游戏都在所有元素互不相同的数组 arr 的前两个元素 arr[0] 和 arr[1] 之间进行。较大的整数将会取得这一回合的胜利并保留在位置 0，而较小的整数则会被移至数组的末尾。比赛继续，直到某个整数连续赢得 k 次，这个整数即为比赛的赢家。<br>
+给定一个整数数组 arr 和一个整数 k，请你返回赢得比赛的整数。题目数据保证游戏中一定存在赢家。</p>
+<h2 id="exp-2">exp</h2>
+<pre><code>def solution(arr: list, k: int) -&gt; int:
+    # 初始化当前赢得比赛的整数和连续赢得的次数
+    current_winner = arr[0]
+    win_count = 0
+    
+    # 模拟比赛
+    while win_count &lt; k:
+        # 比较前两个元素
+        if arr[0] &gt; arr[1]:
+            # arr[0] 赢得比赛
+            if arr[0] == current_winner:
+                win_count += 1
+            else:
+                current_winner = arr[0]
+                win_count = 1
+            # 将较小的元素移到数组末尾
+            arr.append(arr.pop(1))
+        else:
+            # arr[1] 赢得比赛
+            if arr[1] == current_winner:
+                win_count += 1
+            else:
+                current_winner = arr[1]
+                win_count = 1
+            # 将较小的元素移到数组末尾
+            arr.append(arr.pop(0)) 
+    return current_winner
+</code></pre>
+<h1 id="非重叠子数组的最大和">非重叠子数组的最大和</h1>
+<p>问题描述<br>
+小R遇到一个数组 nums，他需要从中找到两个非重叠的子数组，它们的长度分别为 firstLen 和 secondLen。这两个子数组可以相互独立，顺序没有限制，但它们不能有任何重叠。你需要帮小R找出这些子数组的最大和。</p>
+<h2 id="idea-2">idea</h2>
+<p>那就先给数组排序，然后根据两个len来分配。对，还需要去除重复的部分，可以用集合。但是，还要求是连续的。<br>
+然后就要用到<strong>滑动窗口</strong>的办法，来解决连续问题，并且可以提高效率。</p>
+<h2 id="exp-3">exp</h2>
+<pre><code>def solution(nums, firstLen, secondLen):
+    n = len(nums)
+    
+    # 计算前缀和
+    prefix_sum = [0] * (n + 1)
+    for i in range(n):
+        prefix_sum[i + 1] = prefix_sum[i] + nums[i]
+
+    # 函数计算在指定长度下的最大和
+    # 两种组合：frist在前和在后
+    def maxSum(length1, length2):
+        max_length1 = 0
+        max_sum = 0
+        
+        # 遍历所有可能的位置
+        for i in range(length1 + length2 - 1, n):
+            # 更新第一部分的最大值
+            # 计算 max_length1 的时候，i 之前的子数组有足够的长度容纳 length1 和 length2 两个子数组
+            if i - length2 &gt;= 0:
+                # 确保在更新 max_length1 时不会越界
+                # 非重叠：保证当前计算的 length1 长度的子数组在 length2 长度的子数组之前
+                # max_length1 and 从位置 i - length1 - length2 + 1 到 i - length2 的子数组的和，这段长度为 length1，并且在当前位置之前
+                # 总之就是不重叠不越界
+                max_length1 = max(max_length1, prefix_sum[i - length2 + 1] - prefix_sum[i - length1 - length2 + 1])
+            current_sum = max_length1 + (prefix_sum[i + 1] - prefix_sum[i - length2 + 1])
+            max_sum = max(max_sum, current_sum)
+        
+        return max_sum
+
+    # 计算两种组合的最大和
+    return max(maxSum(firstLen, secondLen), maxSum(secondLen, firstLen))
+
+
+
+if __name__ == '__main__':
+    print(solution(nums=[0, 6, 5, 2, 2, 5, 1, 9, 4], firstLen=1, secondLen=2) == 20)
+    print(solution(nums=[3, 8, 1, 3, 5, 2, 1, 0], firstLen=3, secondLen=2) == 21)
+    print(solution(nums=[2, 1, 4, 3, 5, 9, 5, 0, 3, 8], firstLen=4, secondLen=3) == 33)
+</code></pre>
+<h1 id="队列">队列</h1>
+<figure data-type="image" tabindex="1"><img src="https://Big-Halo.github.io/post-images/1730780096705.png" alt="" loading="lazy"></figure>
+<h2 id="idea-3">idea</h2>
+<p>应该先排序，然后遍历，不对，只能删除（）<br>
+特别注意就是不连续的情况</p>
+<h2 id="exp-4">exp</h2>
+<p>不需要计算最长的连续子序列，因为只需要找到 b[i]=i+1 的最长子序列（不需要连续）</p>
+<pre><code>def solution(n: int, a: list) -&gt; int:
+    # 找出所有满足条件的下标
+    valid_indices = [i for i in range(n) if a[i] == i + 1]
+
+    # 如果没有满足条件的下标，返回 -1
+    if not valid_indices:
+        return -1
+    
+    # 检查 valid_indices 是否为连续的子序列
+    is_continuous = True
+    for i in range(1, len(valid_indices)):
+        if valid_indices[i] != valid_indices[i - 1] + 1:
+            is_continuous = False
+            break
+    
+    # 如果是连续的，直接返回最少删除次数
+    if is_continuous:
+        return n - len(valid_indices)
+    
+    # 如果不连续，找到最长的连续子序列
+    max_continuous_length = 1
+    current_length = 1
+    for i in range(1, len(valid_indices)):
+        if valid_indices[i] == valid_indices[i - 1] + 1:
+            current_length += 1
+        else:
+            max_continuous_length = max(max_continuous_length, current_length)
+            current_length = 1
+
+    # 更新 max_continuous_length 以确保包含最后的连续子序列
+    max_continuous_length = max(max_continuous_length, current_length)
+
+    # 返回需要删除的最少次数
+    min_delete = n - max_continuous_length
+    return min_delete
+
+# 测试
+if __name__ == '__main__':
+    print(solution(5, [1, 4, 2, 3, 5]) == 2)  # 输出 2
+    print(solution(3, [3, 3, 2]) == -1)       # 输出 -1
+    print(solution(5, [1, 2, 3, 4, 5]) == 0)  # 输出 0
+</code></pre>
+<figure data-type="image" tabindex="2"><img src="https://Big-Halo.github.io/post-images/1730821338670.png" alt="" loading="lazy"></figure>
+<pre><code>def solution(n: int, a: list) -&gt; int:
+    # 目标是找到最长子序列，使得 b[i] = i + 1
+    expected = 1
+    length_of_valid_subsequence = 0
+
+    for num in a:
+        if num == expected:
+            length_of_valid_subsequence += 1
+            expected += 1
+
+    # 如果没有任何符合条件的子序列
+    if length_of_valid_subsequence == 0:
+        return -1
+    
+    # 最少需要删除的元素个数
+    min_delete = n - length_of_valid_subsequence
+    return min_delete
+</code></pre>
+<h1 id="连通分量的边界着色问题">连通分量的边界着色问题</h1>
+<p>问题描述<br>
+小C拿到了一个大小为 m x n 的整数矩阵 grid，每个值表示网格块的颜色。同时给定三个整数 row、col 和 color。网格中的每个方块可能会与周围上下左右四个方向的方块相邻，如果相邻的方块具有相同的颜色，则它们属于同一个连通分量。<br>
+连通分量的边界是指该连通分量中满足以下条件之一的所有网格块：<br>
+在上下左右任意一个方向上与不属于同一连通分量的网格块相邻。<br>
+位于网格的边界（即第一行/列或最后一行/列）。<br>
+请你帮助小C为包含网格块 grid[row][col] 的连通分量的边界使用指定的颜色 color 进行着色，并返回最终的网格 grid。<br>
+测试样例<br>
+输入：grid = [[1, 1], [1, 2]], row = 0, col = 0, color = 3<br>
+输出：[[3, 3], [3, 2]]</p>
+<h2 id="idea-4">idea</h2>
+<p>首先是对一个二维数组进行操作，先要判定连通分量把，grid[i][j]（grid[i-1][j],grid[i+1][j],grid[i][j-1],grid[i][j+1]），而且这样遍历应该是要从1开始。然后应该是要找边界，再向其的三个或两个方向遍历？（左右下，上下左，上下又，左右）</p>
+<p>看wp，也就是抽象为一个maze题。（DFS/BFS）<br>
+边界要特殊处理</p>
+<h2 id="exp-5">exp</h2>
+<pre><code>def solution(grid: list, row: int, col: int, color: int) -&gt; list:
+    rows = len(grid)
+    cols = len(grid[0])
+    org_color = grid[row][col]  # 使用起始点的颜色
+    visited = [[False] * cols for _ in range(rows)]
+
+    def isBoundary(x, y):
+        # 检查是否为连通分量的外边界
+        if x == 0 or x == rows - 1 or y == 0 or y == cols - 1:
+            return True
+        # 检查四个方向的相邻单元格是否与 org_color 不同
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            nx, ny = x + dx, y + dy
+            # 如果相邻单元格不在边界内或与 org_color 不同，则是边界
+            if 0 &lt;= nx &lt; rows and 0 &lt;= ny &lt; cols and grid[nx][ny] != org_color:
+                return True
+        return False
+
+    def DFS(x, y):
+        # 深度优先搜索，确保只处理连通分量
+        if x &lt; 0 or x &gt;= rows or y &lt; 0 or y &gt;= cols or visited[x][y] or grid[x][y] != org_color:
+            return
+        visited[x][y] = True
+        # 只有在是外部边界时才染色
+        if isBoundary(x, y):
+            grid[x][y] = color
+        # 遍历相邻单元格
+        for dx, dy in [(-1, 0), (1, 0), (0, -1), (0, 1)]:
+            DFS(x + dx, y + dy)
+
+    DFS(row, col)
+    return grid
+
+# 测试用例
+if __name__ == '__main__':
+    print(solution(grid=[[1, 1], [1, 2]], row=0, col=0, color=3) == [[3, 3], [3, 2]])
+    print(solution(grid=[[1, 2, 2], [2, 2, 2], [2, 2, 3]], row=1, col=1, color=4) == [[1, 4, 4], [4, 2, 4], [4, 4, 3]])
+    print(solution(grid=[[1, 1, 1], [1, 1, 1], [1, 1, 1]], row=1, col=1, color=5) == [[5, 5, 5], [5, 1, 5], [5, 5, 5]])
+</code></pre>
+<h1 id="小m的多任务下载器挑战">小M的多任务下载器挑战</h1>
+<p>问题描述<br>
+小M的程序设计大作业是编写一个多任务下载器。在实现过程中，他遇到了一个问题：在一次下载过程中，总共有N个任务，每个任务会在第x秒开始，并持续y秒。小M需要知道，在同一时刻，最多有多少个任务正在同时下载，也就是计算出任务的最高并发数。<br>
+n 表示任务的数量。<br>
+array 是一个二维列表，每个元素为[x, y]，表示任务的开始时间和持续时间，其中：<br>
+x 表示任务的开始时间；<br>
+y 表示任务的持续时间。<br>
+输入：n = 2 ,array = [[1, 2], [2, 3]]<br>
+输出：2</p>
+<h2 id="idea-5">idea</h2>
+<p>也就是会形成一个四边形，找一列有最多数的。然后感觉不好搞</p>
+<p>可以使用一种基于“事件”处理的算法。对于每个任务，我们将任务的开始时间和结束时间视为两个事件，然后计算每一时刻的并发任务数。这种方法通常被称为扫描线算法，因为我们将时间线分成事件点，并计算每个时间点的并发任务数。</p>
+<h2 id="exp-6">exp</h2>
+<pre><code>def solution(n: int, array: list) -&gt; int:
+    events = []
+    
+    # 将每个任务的开始和结束时间作为事件记录
+    for start, duration in array:
+        events.append((start, 1))          # 开始事件，加1并发
+        events.append((start + duration, -1))  # 结束事件，减1并发
+
+    # 按照时间排序，时间相同的情况下，优先处理开始事件
+    events.sort(key=lambda x: (x[0], x[1]))
+
+    # 计算最大并发数
+    max_concurrent = 0
+    current_concurrent = 0
+    
+    for time, event_type in events:
+        current_concurrent += event_type
+        max_concurrent = max(max_concurrent, current_concurrent)
+    
+    return max_concurrent
+
+
+if __name__ == &quot;__main__&quot;:
+    # Add your test cases here
+    print(
+        solution(2, [[1,2], [2,3]]) == 2
+    )
+    print(
+        solution(4, [[1,2], [2,3],[3,5], [4,3]]) == 3
+    )
+</code></pre>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[十月倒数第二周]]></title>
+        <id>https://Big-Halo.github.io/post/2024_10_weekly_diary/</id>
+        <link href="https://Big-Halo.github.io/post/2024_10_weekly_diary/">
+        </link>
+        <updated>2024-10-28T13:27:44.000Z</updated>
+        <summary type="html"><![CDATA[<h1 id="虽然也是没有做太多事情但也是忙忙碌碌的00">虽然也是没有做太多事情，但也是忙忙碌碌的0.0</h1>
+<p>这周因为过生日，前面耗费了一些精力。<br>
+但是<br>
+<img src="https://Big-Halo.github.io/post-images/1730122382756.jpg" alt="" loading="lazy"><br>
+<img src="https://Big-Halo.github.io/post-images/1730122396239.jpg" alt="" loading="lazy"></p>
+]]></summary>
+        <content type="html"><![CDATA[<h1 id="虽然也是没有做太多事情但也是忙忙碌碌的00">虽然也是没有做太多事情，但也是忙忙碌碌的0.0</h1>
+<p>这周因为过生日，前面耗费了一些精力。<br>
+但是<br>
+<img src="https://Big-Halo.github.io/post-images/1730122382756.jpg" alt="" loading="lazy"><br>
+<img src="https://Big-Halo.github.io/post-images/1730122396239.jpg" alt="" loading="lazy"></p>
+<!-- more -->
+<h2 id="然后学习方面">然后学习方面</h2>
+<p>从上周开始了CSAPP的速通，目前读到了160页左右（前面的有些基础，就快速过的），下周起码搞完一个实验。<br>
+还有就是代码随想录的学习，二叉树也刷到了一半，但平常需要多看，到时候也挂blog上<br>
+另外就是字节的一些算法题写了些。</p>
+<!-- more -->
+<h2 id="下周计划">下周计划</h2>
+<ol>
+<li>csapp最少一个实验</li>
+<li>代码随想录二叉树继续看能不能搞完</li>
+<li>看雪的Android看看</li>
+<li>English也要提上来了</li>
+</ol>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[视频分析概要项目]]></title>
+        <id>https://Big-Halo.github.io/post/shi-pin-fen-xi-gai-yao-xiang-mu/</id>
+        <link href="https://Big-Halo.github.io/post/shi-pin-fen-xi-gai-yao-xiang-mu/">
+        </link>
+        <updated>2024-10-07T07:06:16.000Z</updated>
+        <content type="html"><![CDATA[<h1 id="简介">简介</h1>
+<p>和朋友一起搞的一个小项目，但是做完感觉还是很有用的<br>
+就是一个简单的视频分析，添加字幕，提炼大纲，将大纲转换为脑图。然后我们旁边加了一个问答模块。<br>
+只需：填写api密钥--&gt;上传视频：可生成字幕、时间轴、大纲、脑图。右侧配有AI小智<br>
+<img src="https://Big-Halo.github.io/post-images/1728831833860.png" alt="" loading="lazy"></p>
+<h1 id="实现">实现</h1>
+<p><strong>其实我们这个主要也还是前端做的还行，后端都是找的工具调用。</strong></p>
+<p>前端：<br>
+HTML和CSS<br>
+HTML和CSS紧密整合，共同构建网页的基础架构。HTML负责内容和结构，而CSS负责样式和布局。两者结合使用，可以创建既具有良好视觉效果又具备清晰结构的网页，满足现代网页设计的需求。<br>
+快速开发——Bootstrap框架<br>
+还有一个ckPlayer插件<br>
+使用JavaScript和jQuery-AJAX技术进行异步请求<br>
+然后还有一个蓝图注册，可以方便以后添加模块</p>
+<p>后端：<br>
+首先就是Whisper模型语音转录<br>
+FFmpeg从视频中提取音频并生成SRT字幕文件<br>
+OpenCC文字转换<br>
+FFmpeg将SRT字幕嵌入视频<br>
+然后就是大模型部分<br>
+接入OpenAI模型，对SRT内容进行分析，得到大纲和分段概要和结束节点<br>
+最后用networkx和matplotlib据分析结果得到脑图</p>
+<h1 id="总结">总结</h1>
+<p>项目还是非常有用的，也学到了很多，也还有很多功能可以加入，之后也会继续完善。<br>
+<a href="https://github.com/Big-Halo/video-summary">Github地址</a></p>
+]]></content>
+    </entry>
+</feed>
